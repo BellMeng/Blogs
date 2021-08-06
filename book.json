@@ -1,6 +1,6 @@
 {
     "title": "blog",
-    "author": "author",
+    "author": "BellMeng",
     "description": "desc",
     "extension": null,
     "generator": "site",
@@ -45,17 +45,17 @@
     ],
     "pluginsConfig": {
         "github": {
-            "url": "https://github.com/lyonyang/blogs"
+            "url": "https://github.com/BellMeng/Blogs"
         },
         "github-buttons": {
-            "repo": "lyonyang/blogs",
+            "repo": "BellMeng/Blogs",
             "types": [
                 "star"
             ],
             "size": "small"
         },
         "editlink": {
-            "base": "https://github.com/lyonyang/blogs/blob/master",
+            "base": "https://github.com/BellMeng/Blogs/blob/master",
             "label": "编辑本页"
         },
         "anchor-navigation-ex-toc": {
