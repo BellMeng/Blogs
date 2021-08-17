@@ -1,5 +1,7 @@
 # GOROOT、GOPATH和Go Modules
 
+[TOC]
+
 ## 一、GOROOT
 
 GOROOT指的是Golang语言的安装路径，即Golang语言内置的程序库所在的位置。通常在安装的时候会设置GOROOT的路径。在开发时，在导入标准库时并不需要额外安装，在程序运行时程序会自动到GOROOT路径下找到对应的程序。
