@@ -1,0 +1,101 @@
+# GOROOT、GOPATH和Go Modules
+
+## 一、GOROOT
+
+GOROOT指的是Golang语言的安装路径，即Golang语言内置的程序库所在的位置。通常在安装的时候会设置GOROOT的路径。在开发时，在导入标准库时并不需要额外安装，在程序运行时程序会自动到GOROOT路径下找到对应的程序。
+
+## 二、GOPATH
+
+GOPATH是存放第三方库的位置，在开发时，通常会把GOPATH重新设置。在GOPATH下面会包含三个目录分别为：bin、pkg、src。
+
+在GO的1.11版本之前，GOPATH是必需的，且所有的Go项目代码都要保存在GOPATH目录下。Go的1.11版本之后，GO官方引入了Go Module。使用Go Module管理的项目可以放在GOPATH目录外面。
+
+- bin：放置编译后生成的可执行文件
+- pkg：放置编译后生成的库/包的归档文件，
+- src：放置项目和库的源文件，go语言会把go get命令获取到的库文件下载到src目录下对应的文件夹中。
+
+在使用GOPATH时，GO会在以下目录中搜索包：
+
+- `GOROOT/src`：该目录中保存的Go标准库的代码
+- `GOPATH/src`：该目录中保存了应用自身的代码和第三方依赖的代码
+
+在我们的程序引入包时，搜索过程如下：
+
+1. 到GOROOT中的src目录中查找；
+2. 然后再到GOPATH中的src中查找。
+
+使用GOPATH会有个缺点：只要第三方库不是官方程序库，都要放置在$GOPATH/src中才能使用。
+
+## 三、Go Modules
+
+Go Modules是Go语言依赖的解决方案，它目前已经集成在Go的工具链中，只要安装了Go就可以使用Go Modules了。
+
+### 3.1 Go Modules中的命令
+
+Go Modules提供的命令如下：
+
+| 命令            | 作用                           |
+| --------------- | ------------------------------ |
+| go mod init     | 生成go.mod文件                 |
+| go mod download | 下载go.mod中指明的所有依赖     |
+| go mod tidy     | 整理现有的依赖                 |
+| go mod graph    | 查看现有的依赖结构             |
+| go mod edit     | 编辑go.mod文件                 |
+| go mod vendor   | 导出所有的项目依赖到vendor目录 |
+| go mod verify   | 校验某一个模块是否被篡改过     |
+| go mod why      | 查看为什么需要依赖某个模块     |
+
+### 3.2 Go Modules中的环境变量
+
+Go Modules提供了一些环境变量，通过`go env`命令可以查看，常用的环境变量如下：
+
+```shell
+$ go env
+GO111MODULE="auto"
+GOPROXY="https://proxy.golang.org,direct"
+GONOPROXY=""
+GOSUMDB="sum.golang.org"
+GONOSUMDB=""
+GOPRIVATE=""
+...
+```
+
+1. GO111MODULE：该变量为Go Modules的开关，它的可选值有：auto(为默认值，只要项目中包含了go.mod文件的话，就会启用Go Modules)、on(表示启用Go Modules，推荐设置)、off(表示禁用Go Modules，不推荐)
+
+2. GOPROXY：该变量主要用于设置Go模块的代理，作用是可以直接通过镜像站点来实现快速拉取。但是他的默认值中的`https://proxy.golang.org`站点，我们在国内是无法直接访问到的，所以我们在使用时需要设置GOPROXY。
+
+   ```shell
+   $go env -w GOPROXY=https://goproxy.cn,direct
+   ```
+
+3. GOSUMDB：它的值是一个 Go checksum database，用于在拉取模块版本时（无论是从源站拉取还是通过 Go module proxy 拉取）保证拉取到的模块版本数据未经过篡改，若发现不一致，也就是可能存在篡改，将会立即中止。它的默认值是`sum.golang.org`，在国内也是无法访问到的，也可以通过设置GOPROXY来保证它的正常使用。
+
+4. GONOPROXY/GONOSUMDB/GOPRIVATE：这三个环境变量都是在项目依赖于私有模块，如公司的私有git仓库，又或是github中的私有仓库，都属于私有模块，需要进行设置，否则将会拉取失败。也就是说依赖了由Go模块代理或者是由GOSUMDB指定Go checksum database都无法访问到的模块的场景时，一般建议直接配置GOPRIVATE，它的值将作为 GONOPROXY 和 GONOSUMDB 的默认值。
+
+   ```shell
+   $ go env -w GOPRIVATE="git.example.com,github.com/test/testmodule"
+   ```
+
+### 3.3 Go Modules中的go get行为
+
+在项目拉取时，拉取的过程分为三部分：finding(发现)、downloading(下载)和extracting(提取)
+
+go get提供的功能：
+
+| 命令               | 作用                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| go get             | 拉取依赖，会指定性拉取，并不会更新所依赖的其他模块。         |
+| go get -u          | 更新现有依赖，会强制更新它所依赖的其他全部模块，不包括自身。 |
+| go get -u -t ./... | 更新所有直接依赖和间接依赖的模块版本，包括单元测试中用到的。 |
+
+go get拉取具体版本：
+
+| 命令                            | 作用                                                    |
+| ------------------------------- | ------------------------------------------------------- |
+| go get golang.org/x/text@latest | 拉取最新的版本，若存在tag，则优先使用。                 |
+| go get golang.org/x/text@master | 拉取 master 分支的最新 commit。                         |
+| go get golang.org/x/text@v0.3.2 | 拉取 tag 为 v0.3.2 的 commit。                          |
+| go get golang.org/x/text@342b2e | 拉取 hash 为 342b231 的 commit，最终会被转换为 v0.3.2。 |
+
+
+
