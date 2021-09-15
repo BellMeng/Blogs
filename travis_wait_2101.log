@@ -1,0 +1,22 @@
+Switched to a new branch 'gitbook'
+On branch gitbook
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   "02-Go/01-\345\237\272\347\241\200\347\257\207/01-GO\347\216\257\345\242\203\345\217\230\351\207\217.md"
+	modified:   "02-Go/01-\345\237\272\347\241\200\347\257\207/02-\345\217\230\351\207\217\347\232\204\345\243\260\346\230\216\345\217\212\347\261\273\345\236\213.md"
+	modified:   "02-Go/01-\345\237\272\347\241\200\347\257\207/03-array\343\200\201slice\343\200\201map.md"
+	modified:   "02-Go/01-\345\237\272\347\241\200\347\257\207/04-\346\265\201\347\250\213\346\216\247\345\210\266.md"
+	modified:   08-PaperRead/01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.md
+	modified:   08-PaperRead/02-Polarized Self-Attention Towards High-quality Pixel-wise Regression.md
+	modified:   08-PaperRead/03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.md
+	modified:   08-PaperRead/04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.md
+	modified:   08-PaperRead/05-SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices.md
+	modified:   SUMMARY.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	node_modules/
+	travis_wait_2101.log
+
+no changes added to commit (use "git add" and/or "git commit -a")

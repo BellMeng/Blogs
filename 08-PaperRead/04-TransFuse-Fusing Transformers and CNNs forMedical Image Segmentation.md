@@ -1,5 +1,8 @@
 # TransFuse: Fusing Transformers and CNNs forMedical Image Segmentation
 
+
+<extoc></extoc>
+
 ## 一、摘要
 
 ​		医学图像分割是开发医疗保健系统（尤其是疾病诊断和治疗计划）的必要先决条件。在各种医学图像分割任务中，U形架构（也称为U-Net）已成为事实上的标准，并取得了巨大的成功。但是，由于卷积运算的固有局部性，U-Net通常在明确建模远程依赖关系方面显示出局限性。我们提出了一种新的并行分支体系结构TransFuse来提高建模全局上下文的效率，同时保持对低级细节的有力把握。TransFuse以并行的方式将Transformer与CNN结合，可以以更浅的方式有效地捕获全局依赖性和低级空间细节。除此之外，本文还提出了一种新的融合技术BiFusion Module，以有效地融合来自两个分支的多层次特征。
