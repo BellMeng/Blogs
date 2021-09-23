@@ -80,7 +80,7 @@ w = \begin{cases}
 
 ​	将带病变和不带病变的权重设置为1和0，即只有带标注病变的切片参与分割分支的反向传播。总的损失函数表示如下：
 
-![](http://latex.codecogs.com/gif.latex?\\L = L_{seg} + \lambda L_{cls} = w(1 - \frac{\sum_{i}^{N} p_ig_i + s}{\sum_{i}^{N}p_i + \sum_i^Ng_i + s}\) - \lambda ylog\hat y + \lambda (1-y\) log(1-\hat y\))
+![](http://latex.codecogs.com/gif.latex?\\L = L_{seg} + \lambda L_{cls} = w(1 - \frac{\sum_{i}^{N} p_ig_i + s}{\sum_{i}^{N}p_i + \sum_i^Ng_i + s}%29 - \lambda ylog\hat y + \lambda (1-y%29 log(1-\hat y %29)
 
 ​	其中λ为两种损耗的权衡参数，我们在实验中设置λ为1。
 
