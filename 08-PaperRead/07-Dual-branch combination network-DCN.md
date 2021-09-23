@@ -64,7 +64,7 @@ f<sub>3</sub>包含一系列的单元：1×1的卷积、BN和一个ReLU激活函
 
 ​	在分类分支中使用交叉熵损失函数
 
-![](http://latex.codecogs.com/gif.latex?\\L_{cls} = -ylog \hat y + (1 - y)log(1 - \hat y))
+![](http://latex.codecogs.com/gif.latex?\\L_{cls} = -ylog \hat y + (1 - y\)log(1 - \hat y\))
 
 ​	原始的UNet使用BCE损失函数，在我们的数据集上表现很差，COVID-19患者CT图像分割数据极不平衡，病灶区域通常比正常区域和北京小得多，BCE损失不适合这种情况。为了解决这个问题，我们使用Dice损失函数，切片级的Dice损失可以表示如下：
 
@@ -80,7 +80,7 @@ w = \begin{cases}
 
 ​	将带病变和不带病变的权重设置为1和0，即只有带标注病变的切片参与分割分支的反向传播。总的损失函数表示如下：
 
-![](http://latex.codecogs.com/gif.latex?\\L = L_{seg} + \lambda L_{cls} = w(1 - \frac{\sum_{i}^{N} p_ig_i + s}{\sum_{i}^{N}p_i + \sum_i^Ng_i + s}) - \lambda ylog\hat y + \lambda (1-y) log(1-\hat y))
+![](http://latex.codecogs.com/gif.latex?\\L = L_{seg} + \lambda L_{cls} = w(1 - \frac{\sum_{i}^{N} p_ig_i + s}{\sum_{i}^{N}p_i + \sum_i^Ng_i + s}\) - \lambda ylog\hat y + \lambda (1-y\) log(1-\hat y\))
 
 ​	其中λ为两种损耗的权衡参数，我们在实验中设置λ为1。
 
