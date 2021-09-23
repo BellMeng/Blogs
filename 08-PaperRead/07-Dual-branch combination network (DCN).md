@@ -51,9 +51,9 @@
 ![image-20210923110957465](./images/image-20210923110957465.png)
 
 其中W<sub>c</sub>、W<sub>s</sub>是表示1×1卷积层的权重，b<sub>c</sub>、b<sub>s</sub>、b<sub>int</sub>表示一个相应的偏差。f<sub>1</sub>(x)=max(x, 0)，f<sub>2</sub>(x)=1/(1+exp(-x))分别对应ReLU和Sigmoid激活函数。注意力图归一化到[0, 1]。LA模块的最终输出可以如下表示：
-$$
-X_{out} = f_3(\alpha \times x_c, x_s)
-$$
+
+![](http://latex.codecogs.com/gif.latex?\\X_{out} = f_3(\alpha \times x_c, x_s))
+
 f<sub>3</sub>包含一系列的单元：1×1的卷积、BN和一个ReLU激活函数。
 
 ## 3.2 切片概率映射
@@ -63,25 +63,25 @@ f<sub>3</sub>包含一系列的单元：1×1的卷积、BN和一个ReLU激活函
 ### 3.3 损失函数
 
 ​	在分类分支中使用交叉熵损失函数
-$$
-L_{cls} = -ylog \hat y + (1 - y)log(1 - \hat y)
-$$
+
+![](http://latex.codecogs.com/gif.latex?\\L_{cls} = -ylog \hat y + (1 - y)log(1 - \hat y))
+
 ​	原始的UNet使用BCE损失函数，在我们的数据集上表现很差，COVID-19患者CT图像分割数据极不平衡，病灶区域通常比正常区域和北京小得多，BCE损失不适合这种情况。为了解决这个问题，我们使用Dice损失函数，切片级的Dice损失可以表示如下：
-$$
-L_{dice} = 1 - \frac {2 |X \cap Y|}{|X|+|Y|} = 1 - \frac{\sum_{i}^{N} p_ig_i + s}{\sum_{i}^{N}p_i + \sum_i^Ng_i + s}
-$$
+
+![](http://latex.codecogs.com/gif.latex?\\L_{dice} = 1 - \frac {2 |X \cap Y|}{|X|+|Y|} = 1 - \frac{\sum_{i}^{N} p_ig_i + s}{\sum_{i}^{N}p_i + \sum_i^Ng_i + s})
+
 ​	训练分类分支需要来自正常受试者的样本。而在分割任务重，正常受试者的图像都是负样本，这样就加剧了样本的不平衡，从而影响了分支的训练，为了解决这个问题，提出一种加权的Dice损失函数用于分割分支。
-$$
-L_{seg} = w \cdot L_{dice}\\
+
+![](http://latex.codecogs.com/gif.latex?\\L_{seg} = w \cdot L_{dice}\\
 w = \begin{cases}
 1, & \text{if label}=1\\
 0, & \text{if label}=0
-\end{cases}
-$$
+\end{cases})
+
 ​	将带病变和不带病变的权重设置为1和0，即只有带标注病变的切片参与分割分支的反向传播。总的损失函数表示如下：
-$$
-L = L_{seg} + \lambda L_{cls} = w(1 - \frac{\sum_{i}^{N} p_ig_i + s}{\sum_{i}^{N}p_i + \sum_i^Ng_i + s}) - \lambda ylog\hat y + \lambda (1-y) log(1-\hat y)
-$$
+
+![](http://latex.codecogs.com/gif.latex?\\L = L_{seg} + \lambda L_{cls} = w(1 - \frac{\sum_{i}^{N} p_ig_i + s}{\sum_{i}^{N}p_i + \sum_i^Ng_i + s}) - \lambda ylog\hat y + \lambda (1-y) log(1-\hat y))
+
 ​	其中λ为两种损耗的权衡参数，我们在实验中设置λ为1。
 
 
