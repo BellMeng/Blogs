@@ -63,9 +63,9 @@ f<sub>3</sub>包含一系列的单元：1×1的卷积、BN和一个ReLU激活函
 ### 3.4 损失函数
 
 ​	在分类分支中使用交叉熵损失函数
-$$
-L_{cls} = -ylog \hat y + (1 - y)log(1 - \hat y)
-$$
+
+![](http://latex.codecogs.com/gif.latex?\\L_{cls} = -ylog \hat y + (1 - y)log(1 - \hat y))
+
 ​	原始的UNet使用BCE损失函数，在我们的数据集上表现很差，COVID-19患者CT图像分割数据极不平衡，病灶区域通常比正常区域和北京小得多，BCE损失不适合这种情况。为了解决这个问题，我们使用Dice损失函数，切片级的Dice损失可以表示如下：
 
 ![](http://latex.codecogs.com/gif.latex?\\L_{dice} = 1 - \frac {2 |X \cap Y|}{|X|+|Y|} = 1 - \frac{\sum_{i}^{N} p_ig_i + s}{\sum_{i}^{N}p_i + \sum_i^Ng_i + s})
