@@ -28,7 +28,7 @@
     },
     "plugins": [
         "advanced-emoji",
-        "toggle-chapters",
+        "chapter-fold",
         "theme-comscore",
         "splitter",
         "github",
@@ -43,7 +43,8 @@
         "copy-code-button",
         "lightbox",
         "alerts",
-        "hide-element"
+        "hide-element",
+        "pageview-count"
     ],
     "pluginsConfig": {
         "hide-element": {
