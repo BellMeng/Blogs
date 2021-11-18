@@ -14,4 +14,4 @@ env:
     - GH_REF: github.com/BellMeng/Blogs.git
 script:
   - bash summary_create.sh
-  - travis_wait 500 bash deploy.sh
+  - bash deploy.sh
