@@ -1,5 +1,8 @@
 # Conformer: Local Features Coupling Global Representations for Visual Recognition
 
+
+<extoc></extoc>
+
 ## 一、摘要
 
 ​	在卷积神经网络中，卷积运算擅长提取局部特征，但是难以捕获全局特征。在visual Transformer中，级联的SA模块可以捕获远程特征依赖，但是他会破坏局部特征细节。在本文中，提出了一种称为Conformer的混合网络结构，利用卷积和自注意力机制来增强表示学习。Conformer的思想来源于特征耦合单元(FCU)，它以交互式的方式融合不同分辨率下的局部特征和全局表示。Conformer采用并行结构，最大限度的保留了局部特征和全局表示。实验表明，在可比的参数复杂度下，Conformer在ImageNet上的性能比visual Transformer(DeiT-B)高出2.3%。
