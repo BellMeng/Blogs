@@ -1,0 +1,960 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Polarized Self-Attention Towards High-quality Pixel-wise Regression · blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="BellMeng">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex-toc/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.html" />
+    
+    
+    <link rel="prev" href="01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"BellMeng/Blogs","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../01-Python/">
+            
+                <a href="../01-Python/">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../01-Python/01-其它/">
+            
+                <a href="../01-Python/01-其它/">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../01-Python/01-其它/01-tf_gpu安装.html">
+            
+                <a href="../01-Python/01-其它/01-tf_gpu安装.html">
+            
+                    
+                    tf_gpu安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../02-Go/">
+            
+                <a href="../02-Go/">
+            
+                    
+                    Go
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../02-Go/01-基础篇/">
+            
+                <a href="../02-Go/01-基础篇/">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../02-Go/01-基础篇/01-GO项目管理.html">
+            
+                <a href="../02-Go/01-基础篇/01-GO项目管理.html">
+            
+                    
+                    GO项目管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../02-Go/01-基础篇/02-变量的声明及类型.html">
+            
+                <a href="../02-Go/01-基础篇/02-变量的声明及类型.html">
+            
+                    
+                    变量的声明及类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../02-Go/01-基础篇/03-复合数据类型.html">
+            
+                <a href="../02-Go/01-基础篇/03-复合数据类型.html">
+            
+                    
+                    复合数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../02-Go/01-基础篇/04-流程控制.html">
+            
+                <a href="../02-Go/01-基础篇/04-流程控制.html">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="../02-Go/01-基础篇/05-函数.html">
+            
+                <a href="../02-Go/01-基础篇/05-函数.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../02-Go/02-进阶篇/">
+            
+                <a href="../02-Go/02-进阶篇/">
+            
+                    
+                    进阶篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../02-Go/03-web框架/">
+            
+                <a href="../02-Go/03-web框架/">
+            
+                    
+                    web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../03-MySQL/">
+            
+                <a href="../03-MySQL/">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../04-MongoDB/">
+            
+                <a href="../04-MongoDB/">
+            
+                    
+                    MongoDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../05-Redis/">
+            
+                <a href="../05-Redis/">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../06-Docker/">
+            
+                <a href="../06-Docker/">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../07-k8s/">
+            
+                <a href="../07-k8s/">
+            
+                    
+                    k8s
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../07-k8s/01-基础篇/">
+            
+                <a href="../07-k8s/01-基础篇/">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../07-k8s/01-基础篇/01-基本概念.html">
+            
+                <a href="../07-k8s/01-基础篇/01-基本概念.html">
+            
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../08-Leetcode/">
+            
+                <a href="../08-Leetcode/">
+            
+                    
+                    Leetcode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../08-Leetcode/01-1~100/">
+            
+                <a href="../08-Leetcode/01-1~100/">
+            
+                    
+                    1~100
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1.1" data-path="../08-Leetcode/01-1~100/005-最长回文子串.html">
+            
+                <a href="../08-Leetcode/01-1~100/005-最长回文子串.html">
+            
+                    
+                    最长回文子串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.2" data-path="../08-Leetcode/01-1~100/006-Z字形变换.html">
+            
+                <a href="../08-Leetcode/01-1~100/006-Z字形变换.html">
+            
+                    
+                    Z字形变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.3" data-path="../08-Leetcode/01-1~100/007-整数反转.html">
+            
+                <a href="../08-Leetcode/01-1~100/007-整数反转.html">
+            
+                    
+                    整数反转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.4" data-path="../08-Leetcode/01-1~100/008-字符串转整数.html">
+            
+                <a href="../08-Leetcode/01-1~100/008-字符串转整数.html">
+            
+                    
+                    字符串转整数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.5" data-path="../08-Leetcode/01-1~100/009-回文数.html">
+            
+                <a href="../08-Leetcode/01-1~100/009-回文数.html">
+            
+                    
+                    回文数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.6" data-path="../08-Leetcode/01-1~100/010-正则表达式匹配.html">
+            
+                <a href="../08-Leetcode/01-1~100/010-正则表达式匹配.html">
+            
+                    
+                    正则表达式匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.7" data-path="../08-Leetcode/01-1~100/011-盛水最多的容器.html">
+            
+                <a href="../08-Leetcode/01-1~100/011-盛水最多的容器.html">
+            
+                    
+                    盛水最多的容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.8" data-path="../08-Leetcode/01-1~100/012-整数转罗马数字.html">
+            
+                <a href="../08-Leetcode/01-1~100/012-整数转罗马数字.html">
+            
+                    
+                    整数转罗马数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.9" data-path="../08-Leetcode/01-1~100/013-罗马数字转整数.html">
+            
+                <a href="../08-Leetcode/01-1~100/013-罗马数字转整数.html">
+            
+                    
+                    罗马数字转整数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.10" data-path="../08-Leetcode/01-1~100/014-最长公共前缀.html">
+            
+                <a href="../08-Leetcode/01-1~100/014-最长公共前缀.html">
+            
+                    
+                    最长公共前缀
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.11" data-path="../08-Leetcode/01-1~100/015-三数之和.html">
+            
+                <a href="../08-Leetcode/01-1~100/015-三数之和.html">
+            
+                    
+                    三数之和
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    PaperRead
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.html">
+            
+                <a href="01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.html">
+            
+                    
+                    Medical Transformer-Gated Axial-Attention forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11.2" data-path="02-Polarized Self-Attention Towards High-quality Pixel-wise Regression.html">
+            
+                <a href="02-Polarized Self-Attention Towards High-quality Pixel-wise Regression.html">
+            
+                    
+                    Polarized Self-Attention Towards High-quality Pixel-wise Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.html">
+            
+                <a href="03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.html">
+            
+                    
+                    U-Net Transformer Self and Cross Attention forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.html">
+            
+                <a href="04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.html">
+            
+                    
+                    TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="05-SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices.html">
+            
+                <a href="05-SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices.html">
+            
+                    
+                    SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="06-Conformer-Local Features Coupling Global Representations for Visual Recognition.html">
+            
+                <a href="06-Conformer-Local Features Coupling Global Representations for Visual Recognition.html">
+            
+                    
+                    Conformer-Local Features Coupling Global Representations for Visual Recognition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="07-Dual-branch combination network-DCN.html">
+            
+                <a href="07-Dual-branch combination network-DCN.html">
+            
+                    
+                    Dual-branch combination network-DCN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../10-Others/">
+            
+                <a href="../10-Others/">
+            
+                    
+                    Others
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../10-Others/01-位运算.html">
+            
+                <a href="../10-Others/01-位运算.html">
+            
+                    
+                    位运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Polarized Self-Attention Towards High-quality Pixel-wise Regression</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#polarized-self-attention-towards-high-quality-pixel-wise-regression"><b></b>Polarized Self-Attention: Towards High-quality Pixel-wise Regression</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x6458;&#x8981;"><b></b>1. &#x6458;&#x8981;</a></li><li><span class="title-icon "></span><a href="#2-&#x65B9;&#x6CD5;"><b></b>2. &#x65B9;&#x6CD5;</a></li><ul><li><span class="title-icon "></span><a href="#21-self-attention-for-pixel-wise-regression"><b></b>2.1 Self-Attention for Pixel-wise Regression</a></li><li><span class="title-icon "></span><a href="#22-polarized-self-attention-psa-block"><b></b>2.2 Polarized Self-Attention (PSA) Block</a></li></ul><li><span class="title-icon "></span><a href="#3-&#x672A;&#x6765;&#x5DE5;&#x4F5C;"><b></b>3. &#x672A;&#x6765;&#x5DE5;&#x4F5C;</a></li></ul></ul></div><a href="#polarized-self-attention-towards-high-quality-pixel-wise-regression" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="polarized-self-attention-towards-high-quality-pixel-wise-regression"><a name="polarized-self-attention-towards-high-quality-pixel-wise-regression" class="anchor-navigation-ex-anchor" href="#polarized-self-attention-towards-high-quality-pixel-wise-regression"><i class="fa fa-link" aria-hidden="true"></i></a>Polarized Self-Attention: Towards High-quality Pixel-wise Regression</h1>
+<p><a href="https://github.com/DeLightCMU/PSA" target="_blank">Code</a></p>
+<div id="anchor-navigation-ex-pagetop-navbar"><ul><li><span class="title-icon "></span><a href="#polarized-self-attention-towards-high-quality-pixel-wise-regression"><b></b>Polarized Self-Attention: Towards High-quality Pixel-wise Regression</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x6458;&#x8981;"><b></b>1. &#x6458;&#x8981;</a></li><li><span class="title-icon "></span><a href="#2-&#x65B9;&#x6CD5;"><b></b>2. &#x65B9;&#x6CD5;</a></li><ul><li><span class="title-icon "></span><a href="#21-self-attention-for-pixel-wise-regression"><b></b>2.1 Self-Attention for Pixel-wise Regression</a></li><li><span class="title-icon "></span><a href="#22-polarized-self-attention-psa-block"><b></b>2.2 Polarized Self-Attention (PSA) Block</a></li></ul><li><span class="title-icon "></span><a href="#3-&#x672A;&#x6765;&#x5DE5;&#x4F5C;"><b></b>3. &#x672A;&#x6765;&#x5DE5;&#x4F5C;</a></li></ul></ul></div>
+
+<h2 id="1-&#x6458;&#x8981;"><a name="1-&#x6458;&#x8981;" class="anchor-navigation-ex-anchor" href="#1-&#x6458;&#x8981;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x6458;&#x8981;</h2>
+<p>&#x50CF;&#x7D20;&#x56DE;&#x5F52;&#x53EF;&#x80FD;&#x662F;&#x7EC6;&#x7C92;&#x5EA6;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x4EFB;&#x52A1;&#x4E2D;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x4F30;&#x8BA1;&#x5339;&#x914D;&#x5173;&#x952E;&#x70B9;&#x70ED;&#x56FE;&#x548C;&#x5206;&#x5272;&#x63A9;&#x819C;&#x3002;&#x8FD9;&#x4E9B;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#x975E;&#x5E38;&#x5177;&#x6709;&#x6311;&#x6218;&#x6027;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x9700;&#x8981;&#x5728;&#x8F83;&#x4F4E;&#x7684;&#x8BA1;&#x7B97;&#x5F00;&#x9500;&#x4E0B;&#xFF0C;&#x5BF9;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x8F93;&#x5165;/&#x8F93;&#x51FA;&#x7684;&#x957F;&#x7A0B;&#x4F9D;&#x8D56;&#x6027;&#x8FDB;&#x884C;&#x5EFA;&#x6A21;&#xFF0C;&#x4EE5;&#x4F30;&#x8BA1;&#x9AD8;&#x5EA6;&#x975E;&#x7EBF;&#x6027;&#x7684;&#x50CF;&#x7D20;&#x8BED;&#x4E49;&#x3002;&#x867D;&#x7136;&#x6DF1;&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF08;DCNN&#xFF09;&#x4E2D;&#x7684;&#x6CE8;&#x610F;&#x673A;&#x5236;&#x5DF2;&#x6210;&#x4E3A;&#x589E;&#x5F3A;&#x957F;&#x7A0B;&#x4F9D;&#x8D56;&#x6027;&#x3001;&#x5143;&#x7D20;&#x7279;&#x5B9A;&#x6CE8;&#x610F;&#xFF08;&#x5982;&#x975E;&#x5C40;&#x90E8;&#x5757;&#xFF09;&#x7684;&#x5E38;&#x7528;&#x673A;&#x5236;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x9AD8;&#x5EA6;&#x590D;&#x6742;&#x4E14;&#x5BF9;&#x566A;&#x97F3;&#x654F;&#x611F;&#x7684;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x7B80;&#x5316;&#x7684;&#x6CE8;&#x610F;&#x529B;&#x6DF7;&#x5408;&#x4F53;&#x90FD;&#x8BD5;&#x56FE;&#x5728;&#x591A;&#x79CD;&#x4EFB;&#x52A1;&#x4E4B;&#x95F4;&#x8FBE;&#x6210;&#x6700;&#x4F73;&#x6298;&#x8877;&#xFF0C;&#x6211;&#x4EEC;&#x63D0;&#x51FA;&#x4E86;&#x6781;&#x5316;&#x81EA;&#x6211;&#x6CE8;&#x610F;&#xFF08;PSA&#xFF09;&#x6A21;&#x5757;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x7ED3;&#x5408;&#x4E86;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x8BBE;&#x8BA1;&#xFF0C;&#x4EE5;&#x5B9E;&#x73B0;&#x9AD8;&#x8D28;&#x91CF;&#x50CF;&#x7D20;&#x56DE;&#x5F52;&#xFF1A;</p>
+<p>(1) &#x6781;&#x5316;&#x6EE4;&#x6CE2;&#xFF1A;&#x5728;&#x901A;&#x9053;&#x548C;&#x7A7A;&#x95F4;&#x6CE8;&#x610F;&#x529B;&#x8BA1;&#x7B97;&#x4E2D;&#x4FDD;&#x6301;&#x9AD8;&#x5185;&#x90E8;&#x5206;&#x8FA8;&#x7387;&#xFF0C;&#x540C;&#x65F6;&#x5B8C;&#x5168;&#x6298;&#x53E0;&#x8F93;&#x5165;&#x6CBF;&#x5BF9;&#x5E94;&#x7EF4;&#x5EA6;&#x7684;&#x5F20;&#x91CF;&#x3002;</p>
+<p><a href="images/image-20210820131159823.png" data-lightbox="57422ed2-9ccb-4771-a8e6-e9ae63a5dd78" data-title="image-20210820131159823"><img src="images/image-20210820131159823.png" alt="image-20210820131159823"></a></p>
+<p>(2) &#x589E;&#x5F3A;&#xFF1A;&#x7EC4;&#x5408;&#x975E;&#x7EBF;&#x6027;&#x76F4;&#x63A5;&#x62DF;&#x5408;&#x5178;&#x578B;&#x7EC6;&#x7C92;&#x5EA6;&#x56DE;&#x5F52;&#x7684;&#x8F93;&#x51FA;&#x5206;&#x5E03;&#xFF0C;&#x4F8B;&#x5982;&#x4E8C;&#x7EF4;&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#xFF08;&#x5173;&#x952E;&#x70B9;&#x70ED;&#x56FE;&#xFF09;&#x6216;&#x4E8C;&#x7EF4;&#x4E8C;&#x9879;&#x5206;&#x5E03;&#xFF08;&#x4E8C;&#x8FDB;&#x5236;&#x5206;&#x5272;&#x63A9;&#x7801;&#xFF09;&#x3002;</p>
+<p><a href="images/image-20210820131249654.png" data-lightbox="a7915484-c4f6-4d6f-987c-eb9e0ca60840" data-title="image-20210820131249654"><img src="images/image-20210820131249654.png" alt="image-20210820131249654"></a></p>
+<h2 id="2-&#x65B9;&#x6CD5;"><a name="2-&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#2-&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x65B9;&#x6CD5;</h2>
+<p>&#x5728;&#x7814;&#x7A76;&#x754C;&#x548C;&#x5DE5;&#x4E1A;&#x754C;&#xFF0C;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x7684;&#x4EFB;&#x52A1;&#x4ECE;&#x7C97;&#x7C92;&#x5EA6;&#x5230;&#x7EC6;&#x7C92;&#x5EA6;&#x7684;&#x8F6C;&#x53D8;&#x8D8B;&#x52BF;&#x5DF2;&#x7ECF;&#x53D6;&#x5F97;&#x4E86;&#x8FDB;&#x6B65;&#x3002;&#x4E0E;&#x7C97;&#x7C92;&#x5EA6;&#x4EFB;&#x52A1;&#x76F8;&#x6BD4;&#xFF0C;&#x50CF;&#x7D20;&#x7EA7;&#x7684;&#x611F;&#x77E5;&#x8D8A;&#x6765;&#x8D8A;&#x5438;&#x5F15;&#x4EBA;&#xFF0C;&#x5982;&#x81EA;&#x52A8;&#x9A7E;&#x9A76;&#xFF0C;&#x589E;&#x5F3A;&#x73B0;&#x5B9E;&#xFF0C;&#x533B;&#x7597;&#x56FE;&#x50CF;&#x5904;&#x7406;&#x548C;&#x516C;&#x5171;&#x76D1;&#x89C6;&#x3002;</p>
+<h3 id="21-self-attention-for-pixel-wise-regression"><a name="21-self-attention-for-pixel-wise-regression" class="anchor-navigation-ex-anchor" href="#21-self-attention-for-pixel-wise-regression"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 Self-Attention for Pixel-wise Regression</h3>
+<p>&#x7528;&#x4E8E;&#x50CF;&#x7D20;&#x56DE;&#x5F52;&#x7684;DCNN&#x6CBF;&#x4E24;&#x4E2A;&#x7EF4;&#x5EA6;&#x5B66;&#x4E60;&#x7279;&#x5F81;&#x7684;&#x52A0;&#x6743;&#x7EC4;&#x5408;&#xFF1A;(1)&#x901A;&#x9053;&#x7279;&#x5B9A;&#x52A0;&#x6743;&#x7528;&#x4EE5;&#x4F30;&#x8BA1;&#x5177;&#x4F53;&#x7C7B;&#x522B;&#x7684;&#x8F93;&#x51FA;&#x5206;&#x6570;; (2)&#x7A7A;&#x95F4;&#x7279;&#x5B9A;&#x6743;&#x91CD;&#xFF0C;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;&#x5177;&#x6709;&#x76F8;&#x540C;&#x8BED;&#x4E49;&#x7684;&#x50CF;&#x7D20;&#x3002;&#x5E94;&#x7528;&#x4E8E;DCNN&#x7684;&#x81EA;&#x6CE8;&#x610F;&#x673A;&#x5236;&#x6709;&#x671B;&#x8FDB;&#x4E00;&#x6B65;&#x7A81;&#x51FA;&#x4EE5;&#x4E0A;&#x4E24;&#x4E2A;&#x76EE;&#x6807;&#x3002;</p>
+<p>&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x50CF;&#x7D20;&#x56DE;&#x5F52;&#x7684;&#x901A;&#x9053;&#x7279;&#x5B9A;&#x6743;&#x91CD;&#x548C;&#x7A7A;&#x95F4;&#x7279;&#x5B9A;&#x6743;&#x91CD;&#xFF1A;</p>
+<h4 id="211-internal-attention-resolution"><a name="211-internal-attention-resolution" class="anchor-navigation-ex-anchor" href="#211-internal-attention-resolution"><i class="fa fa-link" aria-hidden="true"></i></a>2.1.1 Internal Attention Resolution</h4>
+<p>&#x56DE;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x50CF;&#x7D20;&#x7EA7;&#x56DE;&#x5F52;DCNN&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x4E3B;&#x5E72;&#x7F51;&#x7EDC;&#xFF0C;&#x5982;&#xFF1A;ResNet&#xFF0C;&#x4F5C;&#x4E3A;&#x5206;&#x7C7B;&#x548C;&#x5750;&#x6807;&#x56DE;&#x5F52;&#x4EFB;&#x52A1;&#x3002;&#x4E3A;&#x4E86;&#x9C81;&#x68D2;&#x6027;&#x548C;&#x8BA1;&#x7B97;&#x6548;&#x7387;&#xFF0C;&#x8FD9;&#x4E9B;backbone&#x4EA7;&#x751F;&#x4F4E;&#x5206;&#x8FA8;&#x7387;&#x7684;&#x7279;&#x5F81;&#x56FE;&#x3002;&#x50CF;&#x7D20;&#x56DE;&#x5F52;&#x65E0;&#x6CD5;&#x907F;&#x514D;&#x8FD9;&#x79CD;&#x5206;&#x8FA8;&#x7387;&#x635F;&#x5931;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x56E0;&#x4E3A;&#x5BF9;&#x8C61;&#x8FB9;&#x7F18;&#x548C;&#x8EAB;&#x4F53;&#x90E8;&#x4F4D;&#x7684;&#x9AD8;&#x975E;&#x7EBF;&#x6027;&#x5F88;&#x96BE;&#x5728;&#x4F4E;&#x5206;&#x8FA8;&#x7387;&#x7279;&#x5F81;&#x4E2D;&#x7F16;&#x7801;&#x3002;</p>
+<p>&#x5728;&#x50CF;&#x7D20;&#x56DE;&#x5F52;&#x4E2D;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;backbone&#xFF0C;&#x81EA;&#x6CE8;&#x610F;&#x5757;&#x6709;&#x671B;&#x5728;&#x6CE8;&#x610F;&#x529B;&#x8BA1;&#x7B97;&#x4E2D;&#x4FDD;&#x6301;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x7684;&#x8BED;&#x4E49;&#x3002;</p>
+<h4 id="212-output-distributionsnon-linearity"><a name="212-output-distributionsnon-linearity" class="anchor-navigation-ex-anchor" href="#212-output-distributionsnon-linearity"><i class="fa fa-link" aria-hidden="true"></i></a>2.1.2 Output Distributions/Non-linearity</h4>
+<p>&#x5728;&#x9010;&#x50CF;&#x7D20;&#x56DE;&#x5F52;&#x7684;DCNN&#x4E2D;&#xFF0C;&#x8F93;&#x51FA;&#x901A;&#x5E38;&#x7F16;&#x7801;&#x4E3A;&#x4E09;&#x7EF4;&#x5F20;&#x91CF;&#xFF0C;&#x901A;&#x8FC7;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#xFF08;&#x5982;&#x5377;&#x79EF;&#xFF09;&#x76F4;&#x63A5;&#x62DF;&#x5408;&#x5206;&#x5E03;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x53EF;&#x80FD;&#x4F1A;&#x51CF;&#x8F7B;DCNN&#x7684;&#x5B66;&#x4E60;&#x8D1F;&#x62C5;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x73B0;&#x6709;&#x7684;Internal Attention Block&#x90FD;&#x4E0D;&#x5305;&#x542B;&#x8FD9;&#x6837;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x51FD;&#x6570;&#x7EC4;&#x5408;&#x3002;</p>
+<h3 id="22-polarized-self-attention-psa-block"><a name="22-polarized-self-attention-psa-block" class="anchor-navigation-ex-anchor" href="#22-polarized-self-attention-psa-block"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 Polarized Self-Attention (PSA) Block</h3>
+<p>&#x200B;        &#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x4E0A;&#x8FF0;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x63D0;&#x51FA;&#x5728;&#x6CE8;&#x610F;&#x529B;&#x8BA1;&#x7B97;&#x4E2D;&#x8FDB;&#x884C;&#x6781;&#x5316;&#x6EE4;&#x6CE2;&#x3002;&#x4E00;&#x4E2A;Self-Attention&#x5757;&#x5728;&#x8F93;&#x5165;&#x5F20;&#x91CF;X&#x4E0A;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x7528;&#x6765;&#x7A81;&#x51FA;&#x6216;&#x6291;&#x5236;&#x7279;&#x5F81;&#xFF0C;&#x8FD9;&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x4E8E;&#x6EE4;&#x5149;&#x7684;&#x5149;&#x5B66;&#x900F;&#x955C;&#x3002;&#x5728;&#x6444;&#x5F71;&#x4E2D;&#xFF0C;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5411;&#x4E0A;&#x603B;&#x662F;&#x6709;&#x968F;&#x673A;&#x7684;&#x5149;&#xFF0C;&#x4EA7;&#x751F;&#x7729;&#x5149;/&#x53CD;&#x5C04;&#x3002;&#x6781;&#x6027;&#x5316;&#x6EE4;&#x6CE2;&#xFF0C;&#x901A;&#x8FC7;&#x53EA;&#x5141;&#x8BB8;&#x5149;&#x901A;&#x8FC7;&#x4E0E;&#x6A2A;&#x5411;&#x6B63;&#x4EA4;&#x7684;&#x65B9;&#x5411;&#xFF0C;&#x53EF;&#x4EE5;&#x6F5C;&#x5728;&#x5730;&#x6539;&#x5584;&#x7167;&#x7247;&#x7684;&#x5BF9;&#x6BD4;&#x5EA6;&#x3002;&#x7531;&#x4E8E;&#x603B;&#x5F3A;&#x5EA6;&#x7684;&#x635F;&#x5931;&#xFF0C;&#x6EE4;&#x6CE2;&#x540E;&#x7684;&#x5149;&#x901A;&#x5E38;&#x5177;&#x6709;&#x8F83;&#x5C0F;&#x7684;&#x52A8;&#x6001;&#x8303;&#x56F4;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x989D;&#x5916;&#x7684;&#x589E;&#x5F3A;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;&#x901A;&#x8FC7;HDR&#x6765;&#x6062;&#x590D;&#x539F;&#x59CB;&#x573A;&#x666F;&#x7684;&#x7EC6;&#x8282;&#x3002;</p>
+<p>&#x200B;        &#x6211;&#x4EEC;&#x501F;&#x7528;&#x6444;&#x5F71;&#x7684;&#x5173;&#x952E;&#x56E0;&#x7D20;&#xFF0C;&#x63D0;&#x51FA;&#x4E86;&#x504F;&#x632F;&#x81EA;&#x6CE8;&#x610F;&#x673A;&#x5236;&#xFF1A;</p>
+<p>&#x200B;        (1) Filtering: &#x5728;&#x4E00;&#x4E2A;&#x65B9;&#x5411;&#x4E0A;&#x5B8C;&#x5168;&#x6298;&#x53E0;&#x7279;&#x5F81;&#xFF0C;&#x540C;&#x65F6;&#x5728;&#x5176;&#x6B63;&#x4EA4;&#x65B9;&#x5411;&#x4E0A;&#x4FDD;&#x7559;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x7279;&#x5F81;&#x3002;</p>
+<p>&#x200B;        (2) HDR: &#x5728;&#x74F6;&#x9888;&#x5F20;&#x91CF;(&#x6CE8;&#x610F;&#x529B;&#x5757;&#x4E2D;&#x6700;&#x5C0F;&#x7279;&#x5F81;)&#x4E2D;&#x8FDB;&#x884C;Softmax&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;&#x7C7B;&#x9AD8;&#x65AF;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x8272;&#x8C03;&#x6620;&#x5C04;&#xFF0C;&#x4ECE;&#x800C;&#x589E;&#x52A0;&#x6CE8;&#x610F;&#x7684;&#x52A8;&#x6001;&#x8303;&#x56F4;&#x3002;</p>
+<p><a href="images/image-20210820194301397.png" data-lightbox="e64318d6-2648-4ed7-a8aa-b4cafab31cf4" data-title="image-20210820194301397"><img src="images/image-20210820194301397.png" alt="image-20210820194301397"></a></p>
+<p><a href="images/image-20210820194358562.png" data-lightbox="a05475b9-7532-42e7-9cbb-3d79604e5cc1" data-title="image-20210820194358562"><img src="images/image-20210820194358562.png" alt="image-20210820194358562"></a></p>
+<p>&#x4E0E;&#x5176;&#x4ED6;&#x81EA;&#x6CE8;&#x610F;&#x673A;&#x5236;&#x76F8;&#x6BD4;&#xFF0C;</p>
+<ul>
+<li><p>&#x5185;&#x90E8;&#x5206;&#x8FA8;&#x7387;&#x548C;&#x590D;&#x6742;&#x6027;&#xFF1A;&#x4E0E;&#x9876;&#x90E8;&#x914D;&#x7F6E;&#x4E0B;&#x7684;&#x73B0;&#x6709;&#x6CE8;&#x610F;&#x5757;&#x76F8;&#x6BD4;&#xFF0C;PSA&#x5728;&#x901A;&#x9053;&#x548C;&#x7A7A;&#x95F4;&#x7EF4;&#x5EA6;&#x4E0A;&#x4FDD;&#x6301;&#x4E86;&#x6700;&#x9AD8;&#x7684;&#x6CE8;&#x610F;&#x5206;&#x8FA8;&#x7387;&#x3002;</p>
+<p>&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x7684;channel-only attention&#x4E2D;&#xFF0C;softmax&#x91CD;&#x65B0;&#x52A0;&#x6743;&#x4E0E;SE&#x5757;&#x878D;&#x5408;&#xFF0C;&#x5229;&#x7528;softmax&#x4F5C;&#x4E3A;&#x74F6;&#x9888;&#x5904;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x8BBE;&#x8BA1;&#x5728;&#x76F8;&#x5F53;&#x4E8E;GC&#x5757;&#x8BA1;&#x7B97;&#x590D;&#x6742;&#x5EA6;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x8FDB;&#x884C;&#x4E86;&#x66F4;&#x9AD8;&#x7684;&#x5206;&#x8FA8;&#x7387;&#x538B;&#x7F29;&#x548C;&#x6FC0;&#x53D1;&#x3002;</p>
+</li>
+</ul>
+<h2 id="3-&#x672A;&#x6765;&#x5DE5;&#x4F5C;"><a name="3-&#x672A;&#x6765;&#x5DE5;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#3-&#x672A;&#x6765;&#x5DE5;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x672A;&#x6765;&#x5DE5;&#x4F5C;</h2>
+<p>&#x200B;        &#x6211;&#x4EEC;&#x63D0;&#x51FA;&#x4E86;&#x6781;&#x5316;&#x81EA;&#x6211;&#x6CE8;&#x610F;&#xFF08;PSA&#xFF09;&#x5757;&#xFF0C;&#x4EE5;&#x5B9E;&#x73B0;&#x9AD8;&#x8D28;&#x91CF;&#x7684;&#x9010;&#x50CF;&#x7D20;&#x56DE;&#x5F52;&#x3002;&#x4E0E;&#x5176;&#x4ED6;DCNN&#x76F8;&#x6BD4;&#xFF0C; PSA &#x663E;&#x7740;&#x63D0;&#x5347;&#x4E86;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x8BBE;&#x8BA1; (1) &#x5728;&#x6781;&#x5316;&#x7684;&#x4EC5;&#x901A;&#x9053;&#x548C;&#x4EC5;&#x7A7A;&#x95F4;&#x6CE8;&#x610F;&#x5206;&#x652F;&#x4E2D;&#x4FDD;&#x6301;&#x9AD8;&#x5185;&#x90E8;&#x5206;&#x8FA8;&#x7387;&#xFF0C;&#x4EE5;&#x53CA; (2) &#x7ED3;&#x5408;&#x4E86;&#x5145;&#x5206;&#x5229;&#x7528;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x4FE1;&#x606F;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x4FDD;&#x5B58;&#x5728; PSA &#x5206;&#x652F;&#x4E2D;&#x3002; PSA &#x53EF;&#x4EE5;&#x6F5C;&#x5728;&#x5730;&#x4F7F;&#x4EFB;&#x4F55;&#x5177;&#x6709;&#x50CF;&#x7D20;&#x56DE;&#x5F52;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x4EFB;&#x52A1;&#x53D7;&#x76CA;&#x3002;</p>
+<p>&#x200B;        &#x76EE;&#x524D;&#x5C1A;&#x4E0D;&#x6E05;&#x695A; PSA &#x5982;&#x4F55;&#x6700;&#x6709;&#x5229;&#x4E8E;&#x5D4C;&#x5165;&#x590D;&#x6742; DCNN &#x5934;&#x4E2D;&#x7684;&#x5206;&#x7C7B;&#x548C;&#x4F4D;&#x79FB;&#x56DE;&#x5F52;&#x7684;&#x50CF;&#x7D20;&#x56DE;&#x5F52;&#xFF0C;&#x4F8B;&#x5982;&#x5B9E;&#x4F8B;&#x5206;&#x5272;&#x3001;&#x65E0;&#x951A;&#x5BF9;&#x8C61;&#x68C0;&#x6D4B;&#x548C;&#x5168;&#x666F;&#x5206;&#x5272;&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x90A3;&#x4E9B;&#x3002; &#x636E;&#x6211;&#x4EEC;&#x6240;&#x77E5;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x73B0;&#x6709;&#x7684;&#x5E26;&#x6709;&#x81EA;&#x6CE8;&#x610F;&#x529B;&#x5757;&#x7684;&#x5DE5;&#x4F5C;&#x53EA;&#x5728;&#x9AA8;&#x5E72;&#x7F51;&#x7EDC;&#x4E2D;&#x63D2;&#x5165;&#x5757;&#x3002; <strong>&#x6211;&#x4EEC;&#x672A;&#x6765;&#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x63A2;&#x7D22;&#x5728; DCNN &#x5934;&#x4E2D;&#x4F7F;&#x7528; PSA</strong>&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.html" class="navigation navigation-prev " aria-label="Previous page: Medical Transformer-Gated Axial-Attention forMedical Image Segmentation">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.html" class="navigation navigation-next " aria-label="Next page: U-Net Transformer Self and Cross Attention forMedical Image Segmentation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Polarized Self-Attention Towards High-quality Pixel-wise Regression","level":"1.11.2","depth":2,"next":{"title":"U-Net Transformer Self and Cross Attention forMedical Image Segmentation","level":"1.11.3","depth":2,"path":"09-PaperRead/03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.md","ref":"09-PaperRead/03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.md","articles":[]},"previous":{"title":"Medical Transformer-Gated Axial-Attention forMedical Image Segmentation","level":"1.11.1","depth":2,"path":"09-PaperRead/01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.md","ref":"09-PaperRead/01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","chapter-fold","theme-comscore","splitter","github","github-buttons@2.1.0","-sharing","-lunr","-search","search-plus","anchor-navigation-ex-toc@0.0.9","editlink","fontsettings","copy-code-button","lightbox","alerts","hide-element","pageview-count"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/BellMeng/Blogs"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/BellMeng/Blogs/blob/master"},"splitter":{},"anchor-navigation-ex-toc":{"associatedWithSummary":true,"float":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"alerts":{},"github-buttons":{"repo":"BellMeng/Blogs","types":["star"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"theme":"default","author":"BellMeng","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":18,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null}},"gitbook":"*","description":"desc","extension":null},"file":{"path":"09-PaperRead/02-Polarized Self-Attention Towards High-quality Pixel-wise Regression.md","mtime":"2022-02-15T18:31:41.073Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-15T18:32:35.684Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

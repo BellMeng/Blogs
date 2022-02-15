@@ -1,0 +1,965 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices · blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="BellMeng">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex-toc/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="06-Conformer-Local Features Coupling Global Representations for Visual Recognition.html" />
+    
+    
+    <link rel="prev" href="04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"BellMeng/Blogs","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../01-Python/">
+            
+                <a href="../01-Python/">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../01-Python/01-其它/">
+            
+                <a href="../01-Python/01-其它/">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../01-Python/01-其它/01-tf_gpu安装.html">
+            
+                <a href="../01-Python/01-其它/01-tf_gpu安装.html">
+            
+                    
+                    tf_gpu安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../02-Go/">
+            
+                <a href="../02-Go/">
+            
+                    
+                    Go
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../02-Go/01-基础篇/">
+            
+                <a href="../02-Go/01-基础篇/">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../02-Go/01-基础篇/01-GO项目管理.html">
+            
+                <a href="../02-Go/01-基础篇/01-GO项目管理.html">
+            
+                    
+                    GO项目管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../02-Go/01-基础篇/02-变量的声明及类型.html">
+            
+                <a href="../02-Go/01-基础篇/02-变量的声明及类型.html">
+            
+                    
+                    变量的声明及类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../02-Go/01-基础篇/03-复合数据类型.html">
+            
+                <a href="../02-Go/01-基础篇/03-复合数据类型.html">
+            
+                    
+                    复合数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../02-Go/01-基础篇/04-流程控制.html">
+            
+                <a href="../02-Go/01-基础篇/04-流程控制.html">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="../02-Go/01-基础篇/05-函数.html">
+            
+                <a href="../02-Go/01-基础篇/05-函数.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../02-Go/02-进阶篇/">
+            
+                <a href="../02-Go/02-进阶篇/">
+            
+                    
+                    进阶篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../02-Go/03-web框架/">
+            
+                <a href="../02-Go/03-web框架/">
+            
+                    
+                    web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../03-MySQL/">
+            
+                <a href="../03-MySQL/">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../04-MongoDB/">
+            
+                <a href="../04-MongoDB/">
+            
+                    
+                    MongoDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../05-Redis/">
+            
+                <a href="../05-Redis/">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../06-Docker/">
+            
+                <a href="../06-Docker/">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../07-k8s/">
+            
+                <a href="../07-k8s/">
+            
+                    
+                    k8s
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../07-k8s/01-基础篇/">
+            
+                <a href="../07-k8s/01-基础篇/">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../07-k8s/01-基础篇/01-基本概念.html">
+            
+                <a href="../07-k8s/01-基础篇/01-基本概念.html">
+            
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../08-Leetcode/">
+            
+                <a href="../08-Leetcode/">
+            
+                    
+                    Leetcode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../08-Leetcode/01-1~100/">
+            
+                <a href="../08-Leetcode/01-1~100/">
+            
+                    
+                    1~100
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1.1" data-path="../08-Leetcode/01-1~100/005-最长回文子串.html">
+            
+                <a href="../08-Leetcode/01-1~100/005-最长回文子串.html">
+            
+                    
+                    最长回文子串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.2" data-path="../08-Leetcode/01-1~100/006-Z字形变换.html">
+            
+                <a href="../08-Leetcode/01-1~100/006-Z字形变换.html">
+            
+                    
+                    Z字形变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.3" data-path="../08-Leetcode/01-1~100/007-整数反转.html">
+            
+                <a href="../08-Leetcode/01-1~100/007-整数反转.html">
+            
+                    
+                    整数反转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.4" data-path="../08-Leetcode/01-1~100/008-字符串转整数.html">
+            
+                <a href="../08-Leetcode/01-1~100/008-字符串转整数.html">
+            
+                    
+                    字符串转整数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.5" data-path="../08-Leetcode/01-1~100/009-回文数.html">
+            
+                <a href="../08-Leetcode/01-1~100/009-回文数.html">
+            
+                    
+                    回文数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.6" data-path="../08-Leetcode/01-1~100/010-正则表达式匹配.html">
+            
+                <a href="../08-Leetcode/01-1~100/010-正则表达式匹配.html">
+            
+                    
+                    正则表达式匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.7" data-path="../08-Leetcode/01-1~100/011-盛水最多的容器.html">
+            
+                <a href="../08-Leetcode/01-1~100/011-盛水最多的容器.html">
+            
+                    
+                    盛水最多的容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.8" data-path="../08-Leetcode/01-1~100/012-整数转罗马数字.html">
+            
+                <a href="../08-Leetcode/01-1~100/012-整数转罗马数字.html">
+            
+                    
+                    整数转罗马数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.9" data-path="../08-Leetcode/01-1~100/013-罗马数字转整数.html">
+            
+                <a href="../08-Leetcode/01-1~100/013-罗马数字转整数.html">
+            
+                    
+                    罗马数字转整数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.10" data-path="../08-Leetcode/01-1~100/014-最长公共前缀.html">
+            
+                <a href="../08-Leetcode/01-1~100/014-最长公共前缀.html">
+            
+                    
+                    最长公共前缀
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.11" data-path="../08-Leetcode/01-1~100/015-三数之和.html">
+            
+                <a href="../08-Leetcode/01-1~100/015-三数之和.html">
+            
+                    
+                    三数之和
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    PaperRead
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.html">
+            
+                <a href="01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.html">
+            
+                    
+                    Medical Transformer-Gated Axial-Attention forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="02-Polarized Self-Attention Towards High-quality Pixel-wise Regression.html">
+            
+                <a href="02-Polarized Self-Attention Towards High-quality Pixel-wise Regression.html">
+            
+                    
+                    Polarized Self-Attention Towards High-quality Pixel-wise Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.html">
+            
+                <a href="03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.html">
+            
+                    
+                    U-Net Transformer Self and Cross Attention forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.html">
+            
+                <a href="04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.html">
+            
+                    
+                    TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11.5" data-path="05-SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices.html">
+            
+                <a href="05-SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices.html">
+            
+                    
+                    SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="06-Conformer-Local Features Coupling Global Representations for Visual Recognition.html">
+            
+                <a href="06-Conformer-Local Features Coupling Global Representations for Visual Recognition.html">
+            
+                    
+                    Conformer-Local Features Coupling Global Representations for Visual Recognition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="07-Dual-branch combination network-DCN.html">
+            
+                <a href="07-Dual-branch combination network-DCN.html">
+            
+                    
+                    Dual-branch combination network-DCN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../10-Others/">
+            
+                <a href="../10-Others/">
+            
+                    
+                    Others
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../10-Others/01-位运算.html">
+            
+                <a href="../10-Others/01-位运算.html">
+            
+                    
+                    位运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#saunet-an-automatic-segmentation-model-of-covid-19-lesion-from-ct-slices"><b></b>SAUNet++: An automatic segmentation model of COVID-19 lesion from CT slices</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E00;&#x3001;&#x6458;&#x8981;"><b></b>&#x4E00;&#x3001;&#x6458;&#x8981;</a></li><li><span class="title-icon "></span><a href="#&#x4E8C;&#x3001;&#x5F15;&#x8A00;"><b></b>&#x4E8C;&#x3001;&#x5F15;&#x8A00;</a></li><li><span class="title-icon "></span><a href="#&#x4E09;&#x3001;&#x65B9;&#x6CD5;"><b></b>&#x4E09;&#x3001;&#x65B9;&#x6CD5;</a></li><ul><li><span class="title-icon "></span><a href="#31-ser"><b></b>3.1 SER</a></li><li><span class="title-icon "></span><a href="#32-aspp"><b></b>3.2 ASPP</a></li><li><span class="title-icon "></span><a href="#33-loss"><b></b>3.3 Loss</a></li></ul><li><span class="title-icon "></span><a href="#&#x56DB;&#x3001;&#x603B;&#x7ED3;"><b></b>&#x56DB;&#x3001;&#x603B;&#x7ED3;</a></li></ul></ul></div><a href="#saunet-an-automatic-segmentation-model-of-covid-19-lesion-from-ct-slices" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="saunet-an-automatic-segmentation-model-of-covid-19-lesion-from-ct-slices"><a name="saunet-an-automatic-segmentation-model-of-covid-19-lesion-from-ct-slices" class="anchor-navigation-ex-anchor" href="#saunet-an-automatic-segmentation-model-of-covid-19-lesion-from-ct-slices"><i class="fa fa-link" aria-hidden="true"></i></a>SAUNet++: An automatic segmentation model of COVID-19 lesion from CT slices</h1>
+<div id="anchor-navigation-ex-pagetop-navbar"><ul><li><span class="title-icon "></span><a href="#saunet-an-automatic-segmentation-model-of-covid-19-lesion-from-ct-slices"><b></b>SAUNet++: An automatic segmentation model of COVID-19 lesion from CT slices</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E00;&#x3001;&#x6458;&#x8981;"><b></b>&#x4E00;&#x3001;&#x6458;&#x8981;</a></li><li><span class="title-icon "></span><a href="#&#x4E8C;&#x3001;&#x5F15;&#x8A00;"><b></b>&#x4E8C;&#x3001;&#x5F15;&#x8A00;</a></li><li><span class="title-icon "></span><a href="#&#x4E09;&#x3001;&#x65B9;&#x6CD5;"><b></b>&#x4E09;&#x3001;&#x65B9;&#x6CD5;</a></li><ul><li><span class="title-icon "></span><a href="#31-ser"><b></b>3.1 SER</a></li><li><span class="title-icon "></span><a href="#32-aspp"><b></b>3.2 ASPP</a></li><li><span class="title-icon "></span><a href="#33-loss"><b></b>3.3 Loss</a></li></ul><li><span class="title-icon "></span><a href="#&#x56DB;&#x3001;&#x603B;&#x7ED3;"><b></b>&#x56DB;&#x3001;&#x603B;&#x7ED3;</a></li></ul></ul></div>
+
+<h2 id="&#x4E00;&#x3001;&#x6458;&#x8981;"><a name="&#x4E00;&#x3001;&#x6458;&#x8981;" class="anchor-navigation-ex-anchor" href="#&#x4E00;&#x3001;&#x6458;&#x8981;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x3001;&#x6458;&#x8981;</h2>
+<p>&#x200B;        2019&#x5E74;&#x51A0;&#x72B6;&#x75C5;&#x6BD2;&#x75C5;&#xFF08;COVID-19&#xFF09;&#x75AB;&#x60C5;&#x5DF2;&#x5728;&#x4E16;&#x754C;&#x8303;&#x56F4;&#x5185;&#x8513;&#x5EF6;&#xFF0C;&#x533B;&#x7597;&#x4F53;&#x7CFB;&#x9677;&#x5165;&#x5371;&#x673A;&#x3002;&#x8BA1;&#x7B97;&#x673A;&#x65AD;&#x5C42;&#x626B;&#x63CF;&#xFF08;CT&#xFF09;&#x56FE;&#x50CF;&#x4E2D;COVID-19&#x75C5;&#x53D8;&#x7684;&#x7CBE;&#x786E;&#x3001;&#x81EA;&#x52A8;&#x5316;&#x548C;&#x5FEB;&#x901F;&#x5206;&#x5272;&#x53EF;&#x5E2E;&#x52A9;&#x533B;&#x751F;&#x8BCA;&#x65AD;&#x5E76;&#x63D0;&#x4F9B;&#x9884;&#x540E;&#x4FE1;&#x606F;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x75C5;&#x53D8;&#x7684;&#x591A;&#x6837;&#x6027;&#x548C;&#x65E9;&#x671F;&#x75C5;&#x53D8;&#x7684;&#x5C0F;&#x533A;&#x57DF;&#x4F7F;&#x5176;&#x5206;&#x5272;&#x590D;&#x6742;&#x5316;&#x3002;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;SAUNet++&#x6A21;&#x578B;&#xFF0C;&#x8BE5;&#x6A21;&#x578B;&#x5305;&#x542B;SER&#x6A21;&#x5757;&#x548C;ASPP&#x6A21;&#x5757;&#x3002;SER&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x4E3A;&#x66F4;&#x91CD;&#x8981;&#x7684;&#x4FE1;&#x9053;&#x5206;&#x914D;&#x66F4;&#x591A;&#x7684;&#x6743;&#x91CD;&#xFF0C;&#x7F13;&#x89E3;&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#x7684;&#x95EE;&#x9898;&#xFF0C;ASPP&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x91C7;&#x6837;&#x7387;&#x901A;&#x8FC7;&#x7A7A;&#x6D1E;&#x5377;&#x79EF;&#x83B7;&#x5F97;&#x4E0A;&#x4E0B;&#x6587;&#x4FE1;&#x606F;&#x3002;&#x6B64;&#x5916;&#xFF0C;GDL&#x53EF;&#x4EE5;&#x964D;&#x4F4E;&#x75C5;&#x53D8;&#x5927;&#x5C0F;&#x4E0E;Dice&#x635F;&#x5931;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x5173;&#x6027;&#xFF0C;&#x5E76;&#x88AB;&#x5F15;&#x5165;&#x5230;&#x89E3;&#x51B3;&#x5C0F;&#x533A;&#x57DF;&#x5206;&#x5272;&#x95EE;&#x9898;&#x4E2D;&#x3002;&#x6211;&#x4EEC;&#x6536;&#x96C6;&#x4E86;&#x6765;&#x81EA;&#x4E2D;&#x56FD;&#x3001;&#x610F;&#x5927;&#x5229;&#x548C;&#x4FC4;&#x7F57;&#x65AF;&#x7684;&#x591A;&#x56FD;CT&#x626B;&#x63CF;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x4E86;&#x5E7F;&#x6CDB;&#x7684;&#x5B9E;&#x9A8C;&#x3002;&#x5728;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;SAUNet++ &#x548C;GDL&#x5206;&#x522B;&#x4E0E;&#x5148;&#x8FDB;&#x7684;&#x5206;&#x5272;&#x6A21;&#x578B;&#x548C;&#x6D41;&#x884C;&#x7684;&#x635F;&#x5931;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x4E86;&#x6BD4;&#x8F83;&#x3002;&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#x8868;&#x660E;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x5730;&#x63D0;&#x9AD8;COVID-19&#x75C5;&#x7076;&#x5206;&#x5272;&#x5728;Dice&#x7CFB;&#x6570;&#xFF08;&#x6211;&#x4EEC;&#x7684;87.38%&#x5BF9;U-NET++&#xFF1A;86.08%&#xFF09;&#xFF0C;&#x7075;&#x654F;&#x5EA6;&#xFF08;&#x6211;&#x4EEC;&#xFF1A;93.28%&#x5BF9;U-NET++&#xFF1A;89.85%&#xFF09;&#x548C;Hausdorff&#x8DDD;&#x79BB;&#xFF08;&#x6211;&#x4EEC;&#xFF1A;19.99 mm vs U-NET++&#xFF1A;27.69mm&#xFF09;&#x7684;&#x51C6;&#x786E;&#x6027;&#x3002;</p>
+<h2 id="&#x4E8C;&#x3001;&#x5F15;&#x8A00;"><a name="&#x4E8C;&#x3001;&#x5F15;&#x8A00;" class="anchor-navigation-ex-anchor" href="#&#x4E8C;&#x3001;&#x5F15;&#x8A00;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C;&#x3001;&#x5F15;&#x8A00;</h2>
+<p>&#x200B;        &#x8FD1;&#x5E74;&#x6765;&#xFF0C;&#x57FA;&#x4E8E;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7684;&#x533B;&#x5B66;&#x56FE;&#x50CF;&#x5206;&#x5272;&#x6A21;&#x578B;&#x5728;&#x8F85;&#x52A9;&#x4EBA;&#x7C7B;&#x75BE;&#x75C5;&#x8BCA;&#x65AD;&#x65B9;&#x9762;&#x53D6;&#x5F97;&#x4E86;&#x4EE4;&#x4EBA;&#x6EE1;&#x610F;&#x7684;&#x6548;&#x679C;&#x3002;2019&#x51A0;&#x72B6;&#x75C5;&#x6BD2;&#x75BE;&#x75C5;&#x7684;&#x5206;&#x5272;&#x4ECD;&#x5B58;&#x5728;&#x4EE5;&#x4E0B;&#x95EE;&#x9898;&#x3002;</p>
+<ol>
+<li><p>&#x75C5;&#x7076;&#x7C7B;&#x578B;&#x7684;&#x591A;&#x6837;&#x6027;&#xFF0C;&#x75C5;&#x7076;&#x4E4B;&#x95F4;&#x5728;&#x7EB9;&#x7406;&#x3001;&#x4F4D;&#x7F6E;&#x3001;&#x5F62;&#x72B6;&#x7B49;&#x7279;&#x5F81;&#x4E0A;&#x5B58;&#x5728;&#x8F83;&#x5927;&#x5DEE;&#x5F02;&#xFF0C;&#x589E;&#x52A0;&#x4E86;&#x5206;&#x5272;&#x7684;&#x96BE;&#x5EA6;&#x3002;</p>
+</li>
+<li><p>2019&#x51A0;&#x72B6;&#x75C5;&#x6BD2;&#x75BE;&#x75C5;&#x65E9;&#x671F;&#x53D1;&#x73B0;&#x5C0F;&#x9762;&#x79EF;&#xFF0C;&#x65E9;&#x671F;&#x53D1;&#x73B0;COVID-19&#x60A3;&#x8005;&#x6709;&#x5229;&#x4E8E;&#x540E;&#x7EED;&#x6CBB;&#x7597;&#xFF0C;&#x4F46;&#x65E9;&#x671F;GGO&#x56E0;&#x5176;&#x9762;&#x79EF;&#x5C0F;&#x3001;&#x5BF9;&#x6BD4;&#x5EA6;&#x4F4E;&#x3001;&#x5916;&#x89C2;&#x6A21;&#x7CCA;&#x800C;&#x96BE;&#x4EE5;&#x8BC6;&#x522B;&#x3002;</p>
+</li>
+<li><p>2019&#x51A0;&#x72B6;&#x75C5;&#x6BD2;&#x75BE;&#x75C5;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7F3A;&#x4E4F;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6311;&#x6218;&#xFF0C;&#x6536;&#x96C6;&#x8DB3;&#x591F;&#x7684;&#x6570;&#x636E;&#x6765;&#x8BAD;&#x7EC3;&#x5206;&#x5272;&#x6A21;&#x578B;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x6602;&#x8D35;&#x548C;&#x8D39;&#x65F6;&#x7684;&#xFF0C;&#x4EE5;&#x83B7;&#x5F97;&#x9AD8;&#x8D28;&#x91CF;&#x7684;&#x50CF;&#x7D20;&#x7EA7;&#x63A9;&#x6A21;&#x3002;</p>
+<p>&#x672C;&#x6587;&#x7684;&#x4E3B;&#x8981;&#x8D21;&#x732E;&#xFF1A;</p>
+<ul>
+<li><p>&#x5728;UNet++&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x5F15;&#x5165;&#x4E86;SER&#x548C;ASPP&#x6A21;&#x5757;&#x3002;SER&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x4E3A;&#x66F4;&#x91CD;&#x8981;&#x7684;&#x901A;&#x9053;&#x5206;&#x914D;&#x66F4;&#x591A;&#x7684;&#x6743;&#x91CD;&#xFF0C;&#x5E76;&#x7F13;&#x89E3;&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x800C;ASPP&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x91C7;&#x6837;&#x7387;&#x901A;&#x8FC7;&#x7A7A;&#x6D1E;&#x5377;&#x79EF;&#x83B7;&#x5F97;&#x4E0A;&#x4E0B;&#x6587;&#x4FE1;&#x606F;&#x3002;</p>
+</li>
+<li><p>&#x5F15;&#x5165;GDL&#x6765;&#x89E3;&#x51B3;&#x5C0F;&#x533A;&#x57DF;&#x5206;&#x5272;&#x95EE;&#x9898;&#x3002;&#x4E0E;&#x5E38;&#x89C1;&#x7684;&#x9AB0;&#x5B50;&#x4E22;&#x5931;&#x76F8;&#x6BD4;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5E73;&#x8861;&#x6BCF;&#x4E2A;&#x533A;&#x57DF;&#x5BF9;&#x4E22;&#x5931;&#x7684;&#x8D21;&#x732E;&#xFF0C;&#x4F7F;&#x8BAD;&#x7EC3;&#x66F4;&#x52A0;&#x7A33;&#x5B9A;&#x3002;</p>
+</li>
+<li><p>&#x6211;&#x4EEC;&#x6536;&#x96C6;&#x4E86;&#x6765;&#x81EA;&#x56DB;&#x4E2A;&#x4E0D;&#x540C;&#x6570;&#x636E;&#x96C6;&#x7684;&#x591A;&#x56FD;CT&#x626B;&#x63CF;&#x3002;&#x5B9E;&#x9A8C;&#x5171;&#x4F7F;&#x7528;&#x4E86;11359&#x5F20;&#x5177;&#x6709;&#x9AD8;&#x8D28;&#x91CF;&#x7D20;&#x6C34;&#x5E73;&#x63A9;&#x6A21;&#x7684;&#x5207;&#x7247;&#x3002;</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="&#x4E09;&#x3001;&#x65B9;&#x6CD5;"><a name="&#x4E09;&#x3001;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x4E09;&#x3001;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E09;&#x3001;&#x65B9;&#x6CD5;</h2>
+<p><a href="images/image-20210830155257029.png" data-lightbox="40339baf-7fde-4db6-9192-c74a00f97839" data-title="image-20210830155257029"><img src="images/image-20210830155257029.png" alt="image-20210830155257029"></a></p>
+<p>SAUNet++&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x5B83;&#x5728;UNet&#x548C;UNet++&#x4E0A;&#x8FDB;&#x884C;&#x6539;&#x8FDB;&#xFF0C;&#x539F;&#x59CB;&#x7684;UNet&#x5229;&#x7528;&#x56DB;&#x4E2A;&#x4E0B;&#x91C7;&#x6837;&#x83B7;&#x5F97;&#x9AD8;&#x7EF4;&#x4FE1;&#x606F;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;&#x56DB;&#x4E2A;&#x4E0A;&#x91C7;&#x6837;&#x5C06;&#x7279;&#x5F81;&#x6620;&#x5C04;&#x5230;&#x539F;&#x59CB;&#x5927;&#x5C0F;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x56DB;&#x4E2A;&#x8DF3;&#x8DC3;&#x8FDE;&#x63A5;&#x5408;&#x5E76;&#x7279;&#x5F81;&#x6620;&#x5C04;&#x3002;&#x57FA;&#x4E8E;U-Net&#x7684;&#x6539;&#x8FDB;&#x65B9;&#x6CD5;&#x5E76;&#x4E0D;&#x603B;&#x662F;&#x4F7F;&#x7528;&#x56DB;&#x5C42;&#x7ED3;&#x6784;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x4E0B;&#x91C7;&#x6837;&#x7684;&#x7EC4;&#x5408;&#xFF0C;&#x4E0A;&#x91C7;&#x6837;&#x548C;&#x8DF3;&#x8FC7;&#x8FDE;&#x63A5;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#x3002;&#x53EF;&#x4EE5;&#x4ECE;&#x4E0D;&#x540C;&#x6DF1;&#x5EA6;&#x7684;&#x7ED3;&#x6784;&#x4E2D;&#x63D0;&#x53D6;&#x4E0D;&#x540C;&#x7684;&#x7279;&#x5F81;&#xFF0C;&#x8FD9;&#x5BF9;&#x5206;&#x5272;&#x90FD;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x56E0;&#x6B64;U-Net++&#x5C06;&#x56DB;&#x79CD;&#x4E0D;&#x540C;&#x6DF1;&#x5EA6;&#x7684;&#x7ED3;&#x6784;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x957F;&#x5EA6;&#x7684;&#x8DF3;&#x8FC7;&#x8FDE;&#x63A5;&#x3002;&#x7531;&#x4E8E;U-Net++&#x4F7F;&#x7528;&#x65E0;&#x586B;&#x5145;&#x5377;&#x79EF;&#xFF0C;&#x4E24;&#x6B21;&#x5377;&#x79EF;&#x540E;&#xFF0C;&#x540C;&#x4E00;&#x5C42;&#x4E2D;&#x7684;&#x7279;&#x5F81;&#x56FE;&#x7684;&#x8FB9;&#x754C;&#x50CF;&#x7D20;&#x4E22;&#x5931;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5148;&#x88C1;&#x526A;&#x6536;&#x7F29;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x7279;&#x5F81;&#x56FE;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5C55;&#x5F00;&#x8DEF;&#x5F84;&#x4E2D;&#x4E0E;&#x7279;&#x5F81;&#x56FE;&#x8FDE;&#x63A5;&#x3002;&#x4E3A;&#x4E86;&#x589E;&#x5F3A;U-Net++&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;SER&#x6A21;&#x5757;&#x66FF;&#x6362;&#x539F;&#x6765;&#x7684;&#x4E24;&#x4E2A;&#x5377;&#x79EF;&#xFF0C;&#x5E76;&#x5728;&#x4E0B;&#x91C7;&#x6837;&#x7ED3;&#x675F;&#x65F6;&#x6DFB;&#x52A0;ASPP&#x6A21;&#x5757;&#x3002;</p>
+<h3 id="31-ser"><a name="31-ser" class="anchor-navigation-ex-anchor" href="#31-ser"><i class="fa fa-link" aria-hidden="true"></i></a>3.1 SER</h3>
+<p><a href="images/image-20210830161123377.png" data-lightbox="24ba90f6-8c79-4901-a772-28f3e005e0e2" data-title="image-20210830161123377"><img src="images/image-20210830161123377.png" alt="image-20210830161123377"></a></p>
+<p>SER&#x6A21;&#x5757;&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF0C;SER&#x6A21;&#x5757;&#x57FA;&#x4E8E;SE&#x5757;&#x548C;&#x6B8B;&#x5DEE;&#x5757;&#x3002;</p>
+<h3 id="32-aspp"><a name="32-aspp" class="anchor-navigation-ex-anchor" href="#32-aspp"><i class="fa fa-link" aria-hidden="true"></i></a>3.2 ASPP</h3>
+<p>&#x200B;        &#x5377;&#x79EF;&#x5C42;&#x548C;&#x6C60;&#x5316;&#x5C42;&#x7684;&#x7ED3;&#x5408;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x589E;&#x52A0;&#x989D;&#x5916;&#x53C2;&#x6570;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6269;&#x5C55;&#x56FE;&#x50CF;&#x7684;&#x611F;&#x53D7;&#x91CE;&#xFF0C;&#x4F46;&#x6C60;&#x5316;&#x64CD;&#x4F5C;&#x4F1A;&#x538B;&#x7F29;&#x56FE;&#x50CF;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4ECE;&#x800C;&#x4E22;&#x5931;&#x56FE;&#x50CF;&#x7684;&#x7EC6;&#x8282;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x4E0A;&#x91C7;&#x6837;&#x65E0;&#x6CD5;&#x6062;&#x590D;&#x6240;&#x6709;&#x7A7A;&#x95F4;&#x4FE1;&#x606F;&#x3002;&#x7A7A;&#x6D1E;&#x5377;&#x79EF;&#x7528;&#x66F4;&#x5927;&#x7684;&#x611F;&#x53D7;&#x91CE;&#x8986;&#x76D6;&#x56FE;&#x50CF;&#xFF0C;&#x53EA;&#x6709;&#x611F;&#x53D7;&#x91CE;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x50CF;&#x7D20;&#x7528;&#x4E8E;&#x5377;&#x79EF;&#xFF0C;&#x8FD9;&#x76F8;&#x5F53;&#x4E8E;&#x5728;&#x5377;&#x79EF;&#x6838;&#x4E2D;&#x63D2;&#x5165;&#x5B54;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x7A7A;&#x6D1E;&#x5377;&#x79EF;&#x53EF;&#x4EE5;&#x6269;&#x5C55;&#x611F;&#x53D7;&#x91CE;&#xFF0C;&#x5E76;&#x5728;&#x4E0D;&#x4E22;&#x5931;&#x7EC6;&#x8282;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x63A7;&#x5236;&#x7279;&#x5F81;&#x56FE;&#x7684;&#x5206;&#x8FA8;&#x7387;&#x3002;</p>
+<p><a href="images/image-20210830174312275.png" data-lightbox="1e7fee92-e274-4f5d-b0d8-93fbd31a54c7" data-title="image-20210830174312275"><img src="images/image-20210830174312275.png" alt="image-20210830174312275"></a></p>
+<h3 id="33-loss"><a name="33-loss" class="anchor-navigation-ex-anchor" href="#33-loss"><i class="fa fa-link" aria-hidden="true"></i></a>3.3 Loss</h3>
+<p>Dice&#x635F;&#x5931;&#x88AB;&#x5E7F;&#x6CDB;&#x7528;&#x4E8E;&#x6307;&#x5BFC;&#x56FE;&#x50CF;&#x5206;&#x5272;&#x6A21;&#x578B;&#x7684;&#x8BAD;&#x7EC3;&#xFF0C;&#x4F46;&#x5728;&#x9762;&#x5BF9;&#x5C0F;&#x533A;&#x57DF;&#x65F6;&#x5206;&#x5272;&#x6027;&#x80FD;&#x8F83;&#x5DEE;&#x3002;&#x5982;&#x679C;&#x56FE;&#x50CF;&#x4E2D;&#x7684;&#x50CF;&#x7D20;&#x6570;&#x548C;&#x80CC;&#x666F;&#x4E2D;&#x7684;&#x50CF;&#x7D20;&#x6570;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x6781;&#x7AEF;&#x4E0D;&#x5E73;&#x8861;&#xFF0C;&#x4E00;&#x65E6;&#x4E00;&#x5C0F;&#x90E8;&#x5206;&#x50CF;&#x7D20;&#x9884;&#x6D4B;&#x9519;&#x8BEF;&#xFF0C;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;Dice &#x635F;&#x5931;&#x7684;&#x6025;&#x5267;&#x53D8;&#x5316;&#xFF0C;&#x5BFC;&#x81F4;&#x8BAD;&#x7EC3;&#x4E0D;&#x7A33;&#x5B9A;&#x3002;</p>
+<p>Abraham&#x7B49;&#x4EBA;&#x63D0;&#x51FA;&#x4E86;focal tversky loss (FTL)&#x6765;&#x5904;&#x7406;&#x50CF;&#x7D20;&#x6570;&#x7684;&#x4E0D;&#x5E73;&#x8861;&#x95EE;&#x9898;&#x3002;</p>
+<p><a href="images/image-20210830175444278.png" data-lightbox="9dc74882-929c-471c-a0d6-3b5b3a94cfd9" data-title="image-20210830175444278"><img src="images/image-20210830175444278.png" alt="image-20210830175444278"></a></p>
+<p>Sudre&#x7B49;&#x4EBA;&#x63D0;&#x51FA;GDL&#x4F7F;&#x7528;&#x4E0E;&#x75C5;&#x53D8;&#x6210;&#x53CD;&#x6BD4;&#x7684;&#x6743;&#x91CD;&#xFF0C;&#x4EE5;&#x4FBF;&#x66F4;&#x597D;&#x5730;&#x5206;&#x5272;&#x5C0F;&#x533A;&#x57DF;&#xFF1A;</p>
+<p><a href="images/image-20210830184410252.png" data-lightbox="e6c73607-1ded-4722-9027-7057c1dd99bd" data-title="image-20210830184410252"><img src="images/image-20210830184410252.png" alt="image-20210830184410252"></a></p>
+<h2 id="&#x56DB;&#x3001;&#x603B;&#x7ED3;"><a name="&#x56DB;&#x3001;&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#&#x56DB;&#x3001;&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x56DB;&#x3001;&#x603B;&#x7ED3;</h2>
+<p>SAUNet++&#x6027;&#x80FD;&#x8D85;&#x8FC7;&#x4E86;&#x6700;&#x5148;&#x8FDB;&#x7684;&#x533B;&#x5B66;&#x56FE;&#x50CF;&#x5206;&#x5272;&#x6A21;&#x578B;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x4E5F;&#x53EF;&#x7528;&#x4E8E;&#x5206;&#x5272;&#x5176;&#x4ED6;&#x80BA;&#x90E8;&#x75BE;&#x75C5;&#xFF0C;&#x5982;&#x666E;&#x901A;&#x80BA;&#x708E;&#x3002;&#x5728;&#x672A;&#x6765;&#x7684;&#x5DE5;&#x4F5C;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x628A;&#x75C5;&#x53D8;&#x5206;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x7C7B;&#x522B;&#x6765;&#x8BC4;&#x4F30;&#x6240;&#x63D0;&#x51FA;&#x7684;&#x591A;&#x7C7B;&#x5206;&#x5272;&#x65B9;&#x6CD5;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.html" class="navigation navigation-prev " aria-label="Previous page: TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="06-Conformer-Local Features Coupling Global Representations for Visual Recognition.html" class="navigation navigation-next " aria-label="Next page: Conformer-Local Features Coupling Global Representations for Visual Recognition">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices","level":"1.11.5","depth":2,"next":{"title":"Conformer-Local Features Coupling Global Representations for Visual Recognition","level":"1.11.6","depth":2,"path":"09-PaperRead/06-Conformer-Local Features Coupling Global Representations for Visual Recognition.md","ref":"09-PaperRead/06-Conformer-Local Features Coupling Global Representations for Visual Recognition.md","articles":[]},"previous":{"title":"TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation","level":"1.11.4","depth":2,"path":"09-PaperRead/04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.md","ref":"09-PaperRead/04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","chapter-fold","theme-comscore","splitter","github","github-buttons@2.1.0","-sharing","-lunr","-search","search-plus","anchor-navigation-ex-toc@0.0.9","editlink","fontsettings","copy-code-button","lightbox","alerts","hide-element","pageview-count"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/BellMeng/Blogs"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/BellMeng/Blogs/blob/master"},"splitter":{},"anchor-navigation-ex-toc":{"associatedWithSummary":true,"float":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"alerts":{},"github-buttons":{"repo":"BellMeng/Blogs","types":["star"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"theme":"default","author":"BellMeng","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":18,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null}},"gitbook":"*","description":"desc","extension":null},"file":{"path":"09-PaperRead/05-SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices.md","mtime":"2022-02-15T18:31:41.065Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-15T18:32:35.684Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

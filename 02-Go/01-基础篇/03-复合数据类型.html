@@ -1,0 +1,996 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>复合数据类型 · blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="BellMeng">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex-toc/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="04-流程控制.html" />
+    
+    
+    <link rel="prev" href="02-变量的声明及类型.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"BellMeng/Blogs","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../SUMMARY.html">
+            
+                <a href="../../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../01-Python/">
+            
+                <a href="../../01-Python/">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../01-Python/01-其它/">
+            
+                <a href="../../01-Python/01-其它/">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../01-Python/01-其它/01-tf_gpu安装.html">
+            
+                <a href="../../01-Python/01-其它/01-tf_gpu安装.html">
+            
+                    
+                    tf_gpu安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Go
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="01-GO项目管理.html">
+            
+                <a href="01-GO项目管理.html">
+            
+                    
+                    GO项目管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="02-变量的声明及类型.html">
+            
+                <a href="02-变量的声明及类型.html">
+            
+                    
+                    变量的声明及类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.1.3" data-path="03-复合数据类型.html">
+            
+                <a href="03-复合数据类型.html">
+            
+                    
+                    复合数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="04-流程控制.html">
+            
+                <a href="04-流程控制.html">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="05-函数.html">
+            
+                <a href="05-函数.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../02-进阶篇/">
+            
+                <a href="../02-进阶篇/">
+            
+                    
+                    进阶篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../03-web框架/">
+            
+                <a href="../03-web框架/">
+            
+                    
+                    web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../03-MySQL/">
+            
+                <a href="../../03-MySQL/">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../04-MongoDB/">
+            
+                <a href="../../04-MongoDB/">
+            
+                    
+                    MongoDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../05-Redis/">
+            
+                <a href="../../05-Redis/">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../06-Docker/">
+            
+                <a href="../../06-Docker/">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../07-k8s/">
+            
+                <a href="../../07-k8s/">
+            
+                    
+                    k8s
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../../07-k8s/01-基础篇/">
+            
+                <a href="../../07-k8s/01-基础篇/">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../../07-k8s/01-基础篇/01-基本概念.html">
+            
+                <a href="../../07-k8s/01-基础篇/01-基本概念.html">
+            
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../08-Leetcode/">
+            
+                <a href="../../08-Leetcode/">
+            
+                    
+                    Leetcode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../../08-Leetcode/01-1~100/">
+            
+                <a href="../../08-Leetcode/01-1~100/">
+            
+                    
+                    1~100
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1.1" data-path="../../08-Leetcode/01-1~100/005-最长回文子串.html">
+            
+                <a href="../../08-Leetcode/01-1~100/005-最长回文子串.html">
+            
+                    
+                    最长回文子串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.2" data-path="../../08-Leetcode/01-1~100/006-Z字形变换.html">
+            
+                <a href="../../08-Leetcode/01-1~100/006-Z字形变换.html">
+            
+                    
+                    Z字形变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.3" data-path="../../08-Leetcode/01-1~100/007-整数反转.html">
+            
+                <a href="../../08-Leetcode/01-1~100/007-整数反转.html">
+            
+                    
+                    整数反转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.4" data-path="../../08-Leetcode/01-1~100/008-字符串转整数.html">
+            
+                <a href="../../08-Leetcode/01-1~100/008-字符串转整数.html">
+            
+                    
+                    字符串转整数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.5" data-path="../../08-Leetcode/01-1~100/009-回文数.html">
+            
+                <a href="../../08-Leetcode/01-1~100/009-回文数.html">
+            
+                    
+                    回文数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.6" data-path="../../08-Leetcode/01-1~100/010-正则表达式匹配.html">
+            
+                <a href="../../08-Leetcode/01-1~100/010-正则表达式匹配.html">
+            
+                    
+                    正则表达式匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.7" data-path="../../08-Leetcode/01-1~100/011-盛水最多的容器.html">
+            
+                <a href="../../08-Leetcode/01-1~100/011-盛水最多的容器.html">
+            
+                    
+                    盛水最多的容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.8" data-path="../../08-Leetcode/01-1~100/012-整数转罗马数字.html">
+            
+                <a href="../../08-Leetcode/01-1~100/012-整数转罗马数字.html">
+            
+                    
+                    整数转罗马数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.9" data-path="../../08-Leetcode/01-1~100/013-罗马数字转整数.html">
+            
+                <a href="../../08-Leetcode/01-1~100/013-罗马数字转整数.html">
+            
+                    
+                    罗马数字转整数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.10" data-path="../../08-Leetcode/01-1~100/014-最长公共前缀.html">
+            
+                <a href="../../08-Leetcode/01-1~100/014-最长公共前缀.html">
+            
+                    
+                    最长公共前缀
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.11" data-path="../../08-Leetcode/01-1~100/015-三数之和.html">
+            
+                <a href="../../08-Leetcode/01-1~100/015-三数之和.html">
+            
+                    
+                    三数之和
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../../09-PaperRead/">
+            
+                <a href="../../09-PaperRead/">
+            
+                    
+                    PaperRead
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../../09-PaperRead/01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.html">
+            
+                <a href="../../09-PaperRead/01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.html">
+            
+                    
+                    Medical Transformer-Gated Axial-Attention forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../../09-PaperRead/02-Polarized Self-Attention Towards High-quality Pixel-wise Regression.html">
+            
+                <a href="../../09-PaperRead/02-Polarized Self-Attention Towards High-quality Pixel-wise Regression.html">
+            
+                    
+                    Polarized Self-Attention Towards High-quality Pixel-wise Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../../09-PaperRead/03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.html">
+            
+                <a href="../../09-PaperRead/03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.html">
+            
+                    
+                    U-Net Transformer Self and Cross Attention forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../../09-PaperRead/04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.html">
+            
+                <a href="../../09-PaperRead/04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.html">
+            
+                    
+                    TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../../09-PaperRead/05-SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices.html">
+            
+                <a href="../../09-PaperRead/05-SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices.html">
+            
+                    
+                    SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../../09-PaperRead/06-Conformer-Local Features Coupling Global Representations for Visual Recognition.html">
+            
+                <a href="../../09-PaperRead/06-Conformer-Local Features Coupling Global Representations for Visual Recognition.html">
+            
+                    
+                    Conformer-Local Features Coupling Global Representations for Visual Recognition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../../09-PaperRead/07-Dual-branch combination network-DCN.html">
+            
+                <a href="../../09-PaperRead/07-Dual-branch combination network-DCN.html">
+            
+                    
+                    Dual-branch combination network-DCN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../../10-Others/">
+            
+                <a href="../../10-Others/">
+            
+                    
+                    Others
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../../10-Others/01-位运算.html">
+            
+                <a href="../../10-Others/01-位运算.html">
+            
+                    
+                    位运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >复合数据类型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x590D;&#x5408;&#x6570;&#x636E;&#x7C7B;&#x578B;"><b></b>&#x590D;&#x5408;&#x6570;&#x636E;&#x7C7B;&#x578B;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E00;&#x3001;array"><b></b>&#x4E00;&#x3001;Array</a></li><li><span class="title-icon "></span><a href="#&#x4E8C;&#x3001;slice"><b></b>&#x4E8C;&#x3001;Slice</a></li><li><span class="title-icon "></span><a href="#&#x4E09;&#x3001;map"><b></b>&#x4E09;&#x3001;Map</a></li></ul></ul></div><a href="#&#x590D;&#x5408;&#x6570;&#x636E;&#x7C7B;&#x578B;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x590D;&#x5408;&#x6570;&#x636E;&#x7C7B;&#x578B;"><a name="&#x590D;&#x5408;&#x6570;&#x636E;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x590D;&#x5408;&#x6570;&#x636E;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x590D;&#x5408;&#x6570;&#x636E;&#x7C7B;&#x578B;</h1>
+<div id="anchor-navigation-ex-pagetop-navbar"><ul><li><span class="title-icon "></span><a href="#&#x590D;&#x5408;&#x6570;&#x636E;&#x7C7B;&#x578B;"><b></b>&#x590D;&#x5408;&#x6570;&#x636E;&#x7C7B;&#x578B;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E00;&#x3001;array"><b></b>&#x4E00;&#x3001;Array</a></li><li><span class="title-icon "></span><a href="#&#x4E8C;&#x3001;slice"><b></b>&#x4E8C;&#x3001;Slice</a></li><li><span class="title-icon "></span><a href="#&#x4E09;&#x3001;map"><b></b>&#x4E09;&#x3001;Map</a></li></ul></ul></div>
+
+<h2 id="&#x4E00;&#x3001;array"><a name="&#x4E00;&#x3001;array" class="anchor-navigation-ex-anchor" href="#&#x4E00;&#x3001;array"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x3001;Array</h2>
+<p>&#x6570;&#x7EC4;&#x662F;&#x7531;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x7279;&#x5B9A;&#x7C7B;&#x578B;&#x5143;&#x7D20;&#x7EC4;&#x6210;&#x7684;&#x5E8F;&#x5217;&#x3002;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x662F;&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#xFF0C;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x662F;&#x6570;&#x7EC4;&#x7684;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x4E0D;&#x540C;&#x957F;&#x5EA6;&#x6216;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x7EC4;&#x6210;&#x7684;&#x6570;&#x7EC4;&#x90FD;&#x662F;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x4E0D;&#x540C;&#x957F;&#x5EA6;&#x7684;&#x6570;&#x7EC4;&#x56E0;&#x4E3A;&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8D4B;&#x503C;&#x3002;&#x548C;&#x6570;&#x7EC4;&#x5BF9;&#x5E94;&#x7684;&#x7C7B;&#x578B;&#x662F;&#x5207;&#x7247;(slice)&#xFF0C;&#x5207;&#x7247;&#x662F;&#x53EF;&#x4EE5;&#x52A8;&#x6001;&#x589E;&#x957F;&#x548C;&#x6536;&#x7F29;&#x7684;&#xFF0C;&#x5B83;&#x662F;&#x6BD4;&#x8F83;&#x7075;&#x6D3B;&#x7684;&#x3002;</p>
+<p>&#x6570;&#x7EC4;&#x7684;&#x57FA;&#x672C;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> arr [n]<span class="hljs-keyword">type</span>
+</code></pre>
+<p>&#x5176;&#x4E2D;n&#x8868;&#x793A;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#xFF0C;type&#x8868;&#x793A;&#x6570;&#x7EC4;&#x5B58;&#x50A8;&#x5143;&#x7D20;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> a [<span class="hljs-number">3</span>]<span class="hljs-typename">int</span>                                    <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x957F;&#x5EA6;&#x4E3A;3&#x7684;&#x6574;&#x578B;&#x6570;&#x7EC4;&#xFF0C;&#x503C;&#x5168;&#x90E8;&#x4E3A;0</span>
+<span class="hljs-keyword">var</span> b [...]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}                <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x957F;&#x5EA6;&#x4E3A;3&#x7684;&#x6574;&#x578B;&#x6570;&#x7EC4;&#xFF0C;&#x5143;&#x7D20;&#x4E3A;1&#xFF0C;2&#xFF0C;3</span>
+<span class="hljs-keyword">var</span> c [...]<span class="hljs-typename">int</span>{<span class="hljs-number">2</span>: <span class="hljs-number">3</span>, <span class="hljs-number">1</span>: <span class="hljs-number">2</span>}        <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x957F;&#x5EA6;&#x4E3A;3&#x7684;&#x6574;&#x578B;&#x6570;&#x7EC4;&#xFF0C;&#x5143;&#x7D20;&#x4E3A;0&#xFF0C;2&#xFF0C;3</span>
+<span class="hljs-keyword">var</span> d [...]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>:<span class="hljs-number">5</span>, <span class="hljs-number">6</span>}    <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x957F;&#x5EA6;&#x4E3A;6&#x7684;&#x6574;&#x578B;&#x6570;&#x7EC4;&#xFF0C;&#x5143;&#x7D20;&#x4E3A;1&#xFF0C;2&#xFF0C;0&#xFF0C;0&#xFF0C;5&#xFF0C;6</span>
+</code></pre>
+<p>&#x7B2C;&#x4E00;&#x4E2D;&#x65B9;&#x5F0F;&#x662F;&#x6700;&#x57FA;&#x672C;&#x7684;&#xFF0C;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x660E;&#x786E;&#x4E3A;3&#xFF0C;&#x503C;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x5168;&#x90E8;&#x4E3A;0&#xFF1B;</p>
+<p>&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x672A;&#x77E5;&#xFF0C;&#x81EA;&#x52A8;&#x6839;&#x636E;&#x521D;&#x59CB;&#x5316;&#x7684;&#x503C;&#x6765;&#x5B9A;&#x957F;&#x5EA6;&#xFF0C;&#x540E;&#x9762;&#x6709;&#x51E0;&#x4E2A;&#x5143;&#x7D20;&#x957F;&#x5EA6;&#x5C31;&#x662F;&#x51E0;&#xFF1B;</p>
+<p>&#x7B2C;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x672A;&#x77E5;&#xFF0C;&#x6839;&#x636E;&#x7D22;&#x5F15;&#x6765;&#x5B9A;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x53D6;&#x51B3;&#x4E8E;&#x7D22;&#x5F15;&#x7684;&#x6700;&#x5927;&#x503C;&#xFF1B;</p>
+<p>&#x7B2C;&#x56DB;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x672A;&#x77E5;&#xFF0C;&#x540E;&#x9762;&#x5143;&#x7D20;&#x4E2D;&#x5305;&#x542B;&#x7D22;&#x5F15;&#xFF0C;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x53D6;&#x51B3;&#x4E8E;&#x7D22;&#x5F15;&#x7684;&#x503C;&#x4EE5;&#x53CA;&#x5E26;&#x7D22;&#x5F15;&#x5143;&#x7D20;&#x7684;&#x540E;&#x9762;&#x7684;&#x503C;&#x7684;&#x4E2A;&#x6570;&#x3002;</p>
+<p>&#x5728;Go&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x4E5F;&#x652F;&#x6301;&#x6570;&#x7EC4;&#x7684;&#x5D4C;&#x5957;&#xFF0C;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> a [<span class="hljs-number">2</span>][<span class="hljs-number">4</span>]<span class="hljs-typename">int</span>{[<span class="hljs-number">4</span>]<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>},[<span class="hljs-number">4</span>]<span class="hljs-typename">int</span>{<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>}}
+<span class="hljs-keyword">var</span> b [<span class="hljs-number">2</span>][<span class="hljs-number">4</span>]<span class="hljs-typename">int</span>{{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>}, {<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>}}
+</code></pre>
+<h2 id="&#x4E8C;&#x3001;slice"><a name="&#x4E8C;&#x3001;slice" class="anchor-navigation-ex-anchor" href="#&#x4E8C;&#x3001;slice"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C;&#x3001;Slice</h2>
+<p>&#x5207;&#x7247;&#x662F;Go&#x8BED;&#x8A00;&#x4E2D;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x8FD9;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x66F4;&#x4FBF;&#x4E8E;&#x4F7F;&#x7528;&#x548C;&#x7BA1;&#x7406;&#x6570;&#x636E;&#x96C6;&#x5408;&#x3002;&#x5207;&#x7247;&#x662F;&#x56F4;&#x7ED5;&#x52A8;&#x6001;&#x6570;&#x7EC4;&#x7684;&#x6982;&#x5FF5;&#x6784;&#x5EFA;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x6309;&#x9700;&#x81EA;&#x52A8;&#x589E;&#x957F;&#x548C;&#x7F29;&#x5C0F;&#x3002;&#x5207;&#x7247;&#x7684;&#x52A8;&#x6001;&#x589E;&#x957F;&#x662F;&#x901A;&#x8FC7;&#x5185;&#x7F6E;&#x51FD;&#x6570; <code>append()</code> &#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x4E14;&#x9AD8;&#x6548;&#x5730;&#x589E;&#x957F;&#x5207;&#x7247;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;&#x5207;&#x7247;&#x518D;&#x6B21;&#x5207;&#x5272;&#xFF0C;&#x7F29;&#x5C0F;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x56E0;&#x4E3A;&#x5207;&#x7247;&#x7684;&#x5E95;&#x5C42;&#x4E5F;&#x662F;&#x5728;&#x8FDE;&#x7EED;&#x7684;&#x5185;&#x5B58;&#x5757;&#x4E2D;&#x5206;&#x914D;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5207;&#x7247;&#x8FD8;&#x6709;&#x83B7;&#x5F97;&#x7D22;&#x5F15;&#x3001;&#x8FED;&#x4EE3;&#x4EE5;&#x53CA;&#x4E3A;&#x5783;&#x573E;&#x56DE;&#x6536;&#x4F18;&#x5316;&#x7684;&#x597D;&#x5904;&#x3002;</p>
+<p>&#x5207;&#x7247;&#x7684;&#x521D;&#x59CB;&#x5316;&#x548C;&#x521B;&#x5EFA;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go">slice := <span class="hljs-built_in">make</span>([]<span class="hljs-typename">int</span>, <span class="hljs-number">5</span>)                <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6574;&#x578B;&#x5207;&#x7247;&#xFF0C;&#x5B83;&#x7684;&#x5BB9;&#x91CF;&#x548C;&#x957F;&#x5EA6;&#x90FD;&#x662F;5</span>
+slice := <span class="hljs-built_in">make</span>([]<span class="hljs-typename">int</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>)        <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6574;&#x578B;&#x5207;&#x7247;&#xFF0C;&#x5B83;&#x7684;&#x957F;&#x5EA6;&#x4E3A;3&#xFF0C;&#x5BB9;&#x91CF;&#x4E3A;5&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x5141;&#x8BB8;&#x957F;&#x5EA6;&#x5927;&#x4E8E;&#x5BB9;&#x91CF;&#x3002;</span>
+slice := []<span class="hljs-typename">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>}        <span class="hljs-comment">// &#x901A;&#x8FC7;&#x5B57;&#x9762;&#x91CF;&#x65B9;&#x5F0F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6574;&#x578B;&#x5207;&#x7247;&#xFF0C;&#x5B83;&#x7684;&#x957F;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x90FD;&#x662F;4</span>
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x6700;&#x540E;&#x4E00;&#x79CD;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#x4E0E;&#x6570;&#x7EC4;&#x7684;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;[]&#x4E2D;&#x6CA1;&#x6709;...&#x3002;</p>
+<p>&#x6709;&#x65F6;&#x5019;&#xFF0C;&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x58F0;&#x660E;&#x4E00;&#x4E2A;nil&#x5207;&#x7247;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x5728;&#x58F0;&#x660E;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;nil&#x5207;&#x7247;&#x3002;&#x9700;&#x8981;&#x63CF;&#x8FF0;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5207;&#x7247;&#x65F6;&#xFF0C;&#x4F1A;&#x7528;&#x5230;nil&#x5207;&#x7247;&#xFF0C;&#x6BD4;&#x5982;&#x51FD;&#x6570;&#x8981;&#x6C42;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#xFF0C;&#x4F46;&#x7A0B;&#x5E8F;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#x4E0D;&#x80FD;&#x8FD4;&#x56DE;&#x65F6;&#x5C31;&#x4F1A;&#x7528;&#x5230;nil&#x5207;&#x7247;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> slice []<span class="hljs-typename">int</span>
+</code></pre>
+<p>&#x7A7A;&#x5207;&#x7247;&#x4E0E;nil&#x5207;&#x7247;&#x4E0D;&#x540C;&#xFF0C;<strong>&#x7A7A;&#x5207;&#x7247;</strong>&#x7684;&#x5E95;&#x5C42;&#x6570;&#x7EC4;&#x4E2D;&#x5305;&#x542B; 0 &#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x5206;&#x914D;&#x4EFB;&#x4F55;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x3002;&#x60F3;&#x8868;&#x793A;&#x7A7A;&#x96C6;&#x5408;&#x65F6;&#x7A7A;&#x5207;&#x7247;&#x5F88;&#x6709;&#x7528;&#xFF0C;
+&#x6BD4;&#x5982;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x67E5;&#x8BE2;&#x8FD4;&#x56DE; 0 &#x4E2A;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x65F6;&#x3002;</p>
+<pre><code class="lang-go">slice := <span class="hljs-built_in">make</span>([]<span class="hljs-typename">int</span>, <span class="hljs-number">0</span>)            <span class="hljs-comment">// &#x4F7F;&#x7528; make &#x521B;&#x5EFA;&#x7A7A;&#x7684;&#x6574;&#x578B;&#x5207;&#x7247;</span>
+slice := []<span class="hljs-typename">int</span>{}                        <span class="hljs-comment">// &#x4F7F;&#x7528;&#x5207;&#x7247;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA;&#x7A7A;&#x7684;&#x6574;&#x578B;&#x5207;&#x7247;</span>
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x4E3A;&#x5207;&#x7247;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x5355;&#x72EC;&#x8D4B;&#x503C;&#x3002;</p>
+<pre><code class="lang-go">mySlice := []<span class="hljs-typename">int</span>{<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>}
+mySlice [<span class="hljs-number">1</span>] = <span class="hljs-number">25</span>        <span class="hljs-comment">// &#x4FEE;&#x6539;&#x7D22;&#x5F15;&#x4E3A;1&#x7684;&#x503C;</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5207;&#x7247;&#x6765;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5207;&#x7247;&#xFF0C;&#x8BED;&#x6CD5;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go">slice[i: j: k]
+</code></pre>
+<p>&#x5176;&#x4E2D;i&#x8868;&#x793A;&#x4ECE;&#x7B2C;&#x51E0;&#x4E2A;&#x5143;&#x7D20;&#x5F00;&#x59CB;&#xFF0C;j&#x63A7;&#x5236;&#x5207;&#x7247;&#x7684;&#x957F;&#x5EA6;(j - i)&#xFF0C;k&#x63A7;&#x5236;&#x5207;&#x7247;&#x7684;&#x5BB9;&#x91CF;(k - i)&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7ED9;&#x5B9A; k&#xFF0C;&#x5219;&#x8868;&#x793A;&#x5207;&#x5230;&#x5E95;&#x5C42;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x5C3E;&#x90E8;&#x3002;</p>
+<p><strong>&#x5207;&#x7247;&#x662F;&#x4F1A;&#x5171;&#x4EAB;&#x5E95;&#x5C42;&#x6570;&#x636E;&#x7684;&#xFF0C;&#x5207;&#x7247;&#x53EA;&#x80FD;&#x8BBF;&#x95EE;&#x5230;&#x5176;&#x957F;&#x5EA6;&#x5185;&#x7684;&#x5143;&#x7D20;</strong>&#x3002;</p>
+<p>&#x76F8;&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x800C;&#x8A00;&#xFF0C;&#x5207;&#x7247;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x5C31;&#x662F;&#xFF0C;&#x53EF;&#x4EE5;&#x6309;&#x9700;&#x589E;&#x52A0;&#x5207;&#x7247;&#x7684;&#x5BB9;&#x91CF;&#xFF0C;Golang &#x5185;&#x7F6E;&#x7684;<code>append()</code> &#x51FD;&#x6570;&#x4F1A;&#x5904;&#x7406;&#x589E;&#x52A0;&#x957F;&#x5EA6;&#x65F6;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x7EC6;&#x8282;&#x3002;&#x5728;&#x6211;&#x4EEC;&#x5BF9;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#x4E2D;&#x589E;&#x52A0;&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x5B83;&#x7684;&#x957F;&#x5EA6;&#x4F1A;&#x589E;&#x52A0;&#xFF0C;&#x800C;&#x5BB9;&#x91CF;&#x4F1A;&#x6839;&#x636E;&#x76EE;&#x524D;&#x7684;&#x53EF;&#x7528;&#x5BB9;&#x91CF;&#x6765;&#x8FDB;&#x884C;&#x53D8;&#x66F4;&#xFF0C;&#x82E5;&#x65E0;&#x989D;&#x5916;&#x7684;&#x5BB9;&#x91CF;&#xFF0C;<code>append()</code>&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5E95;&#x5C42;&#x6570;&#x7EC4;&#xFF0C;&#x5C06;&#x88AB;&#x5F15;&#x7528;&#x7684;&#x73B0;&#x6709;&#x7684;&#x503C;&#x590D;&#x5236;&#x5230;&#x65B0;&#x6570;&#x7EC4;&#x91CC;&#xFF0C;&#x518D;&#x8FFD;&#x52A0;&#x65B0;&#x7684;&#x503C;&#xFF0C;&#x6B64;&#x65F6;&#x5207;&#x7247;&#x7684;&#x957F;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x90FD;&#x5C06;&#x4F1A;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x3002;</p>
+<pre><code class="lang-go">myNum := []<span class="hljs-typename">int</span>{<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>}
+newNum := myNum[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]
+newNum = <span class="hljs-built_in">append</span>(newNum, <span class="hljs-number">60</span>)
+</code></pre>
+<p>&#x5BF9;&#x4E8E;slice&#x6709;&#x51E0;&#x4E2A;&#x6709;&#x7528;&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;&#x3002;
+&#x25CF;&#x3000;len&#x83B7;&#x53D6;slice&#x7684;&#x957F;&#x5EA6;
+&#x25CF;&#x3000;cap&#x83B7;&#x53D6;slice&#x7684;&#x6700;&#x5927;&#x5BB9;&#x91CF;
+&#x25CF;&#x3000;append&#x5411;slice&#x91CC;&#x9762;&#x8FFD;&#x52A0;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x548C;slice&#x4E00;&#x6837;&#x7C7B;&#x578B;&#x7684;slice
+&#x25CF;&#x3000;copy&#x51FD;&#x6570;copy&#x4ECE;&#x6E90;slice&#x7684;src&#x4E2D;&#x590D;&#x5236;&#x5143;&#x7D20;&#x5230;&#x76EE;&#x6807;dst&#xFF0C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x590D;&#x5236;&#x7684;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;</p>
+<h2 id="&#x4E09;&#x3001;map"><a name="&#x4E09;&#x3001;map" class="anchor-navigation-ex-anchor" href="#&#x4E09;&#x3001;map"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E09;&#x3001;Map</h2>
+<p>Go&#x8BED;&#x8A00;&#x4E2D;&#x7684;map&#x4E0E;Python&#x4E2D;&#x7684;&#x5B57;&#x5178;&#x7C7B;&#x4F3C;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;<code>key: value</code>&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x58F0;&#x660E;&#x7684;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> numbers <span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>] <span class="hljs-typename">int</span>
+numbers := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-typename">string</span>]<span class="hljs-typename">int</span>)
+numbers[<span class="hljs-string">&quot;one&quot;</span>] = <span class="hljs-number">1</span>
+numbers[<span class="hljs-string">&quot;two&quot;</span>] = <span class="hljs-number">2</span>
+</code></pre>
+<ul>
+<li>map&#x662F;&#x65E0;&#x5E8F;&#x7684;&#xFF0C;&#x6BCF;&#x6B21;&#x6253;&#x5370;&#x51FA;&#x6765;&#x7684;map&#x90FD;&#x4F1A;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5E76;&#x4E14;&#x4E5F;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x6765;&#x83B7;&#x53D6;value&#xFF0C;&#x53EA;&#x80FD;&#x901A;&#x8FC7;key&#x6765;&#x83B7;&#x53D6;value&#x3002;</li>
+<li>map&#x7684;&#x957F;&#x5EA6;&#x662F;&#x4E0D;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x4E0E;slice&#x76F8;&#x540C;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x3002;</li>
+<li>&#x5185;&#x7F6E;&#x7684;len&#x51FD;&#x6570;&#x540C;&#x6837;&#x9002;&#x7528;&#x4E8E;map&#xFF0C;&#x8FD4;&#x56DE;map&#x4E2D;key&#x7684;&#x6570;&#x91CF;&#x3002;</li>
+</ul>
+<blockquote>
+<p>&#x5176;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x5728;&#x540E;&#x9762;&#x7684;&#x5B66;&#x4E60;&#x4E2D;&#x5C06;&#x4F1A;&#x8FDB;&#x884C;&#x8865;&#x5145;&#x4FEE;&#x6539;&#x3002;</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-变量的声明及类型.html" class="navigation navigation-prev " aria-label="Previous page: 变量的声明及类型">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="04-流程控制.html" class="navigation navigation-next " aria-label="Next page: 流程控制">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"复合数据类型","level":"1.4.1.3","depth":3,"next":{"title":"流程控制","level":"1.4.1.4","depth":3,"path":"02-Go/01-基础篇/04-流程控制.md","ref":"02-Go/01-基础篇/04-流程控制.md","articles":[]},"previous":{"title":"变量的声明及类型","level":"1.4.1.2","depth":3,"path":"02-Go/01-基础篇/02-变量的声明及类型.md","ref":"02-Go/01-基础篇/02-变量的声明及类型.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","chapter-fold","theme-comscore","splitter","github","github-buttons@2.1.0","-sharing","-lunr","-search","search-plus","anchor-navigation-ex-toc@0.0.9","editlink","fontsettings","copy-code-button","lightbox","alerts","hide-element","pageview-count"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/BellMeng/Blogs"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/BellMeng/Blogs/blob/master"},"splitter":{},"anchor-navigation-ex-toc":{"associatedWithSummary":true,"float":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"alerts":{},"github-buttons":{"repo":"BellMeng/Blogs","types":["star"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"theme":"default","author":"BellMeng","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":18,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null}},"gitbook":"*","description":"desc","extension":null},"file":{"path":"02-Go/01-基础篇/03-复合数据类型.md","mtime":"2022-02-15T18:31:41.057Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-15T18:32:35.684Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

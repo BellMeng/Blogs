@@ -1,0 +1,933 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>基础篇 · blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="BellMeng">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex-toc/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="01-GO项目管理.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"BellMeng/Blogs","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../SUMMARY.html">
+            
+                <a href="../../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../01-Python/">
+            
+                <a href="../../01-Python/">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../01-Python/01-其它/">
+            
+                <a href="../../01-Python/01-其它/">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../01-Python/01-其它/01-tf_gpu安装.html">
+            
+                <a href="../../01-Python/01-其它/01-tf_gpu安装.html">
+            
+                    
+                    tf_gpu安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Go
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="01-GO项目管理.html">
+            
+                <a href="01-GO项目管理.html">
+            
+                    
+                    GO项目管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="02-变量的声明及类型.html">
+            
+                <a href="02-变量的声明及类型.html">
+            
+                    
+                    变量的声明及类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="03-复合数据类型.html">
+            
+                <a href="03-复合数据类型.html">
+            
+                    
+                    复合数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="04-流程控制.html">
+            
+                <a href="04-流程控制.html">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="05-函数.html">
+            
+                <a href="05-函数.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../02-进阶篇/">
+            
+                <a href="../02-进阶篇/">
+            
+                    
+                    进阶篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../03-web框架/">
+            
+                <a href="../03-web框架/">
+            
+                    
+                    web框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../03-MySQL/">
+            
+                <a href="../../03-MySQL/">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../04-MongoDB/">
+            
+                <a href="../../04-MongoDB/">
+            
+                    
+                    MongoDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../05-Redis/">
+            
+                <a href="../../05-Redis/">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../06-Docker/">
+            
+                <a href="../../06-Docker/">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../07-k8s/">
+            
+                <a href="../../07-k8s/">
+            
+                    
+                    k8s
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../../07-k8s/01-基础篇/">
+            
+                <a href="../../07-k8s/01-基础篇/">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../../07-k8s/01-基础篇/01-基本概念.html">
+            
+                <a href="../../07-k8s/01-基础篇/01-基本概念.html">
+            
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../08-Leetcode/">
+            
+                <a href="../../08-Leetcode/">
+            
+                    
+                    Leetcode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../../08-Leetcode/01-1~100/">
+            
+                <a href="../../08-Leetcode/01-1~100/">
+            
+                    
+                    1~100
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1.1" data-path="../../08-Leetcode/01-1~100/005-最长回文子串.html">
+            
+                <a href="../../08-Leetcode/01-1~100/005-最长回文子串.html">
+            
+                    
+                    最长回文子串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.2" data-path="../../08-Leetcode/01-1~100/006-Z字形变换.html">
+            
+                <a href="../../08-Leetcode/01-1~100/006-Z字形变换.html">
+            
+                    
+                    Z字形变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.3" data-path="../../08-Leetcode/01-1~100/007-整数反转.html">
+            
+                <a href="../../08-Leetcode/01-1~100/007-整数反转.html">
+            
+                    
+                    整数反转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.4" data-path="../../08-Leetcode/01-1~100/008-字符串转整数.html">
+            
+                <a href="../../08-Leetcode/01-1~100/008-字符串转整数.html">
+            
+                    
+                    字符串转整数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.5" data-path="../../08-Leetcode/01-1~100/009-回文数.html">
+            
+                <a href="../../08-Leetcode/01-1~100/009-回文数.html">
+            
+                    
+                    回文数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.6" data-path="../../08-Leetcode/01-1~100/010-正则表达式匹配.html">
+            
+                <a href="../../08-Leetcode/01-1~100/010-正则表达式匹配.html">
+            
+                    
+                    正则表达式匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.7" data-path="../../08-Leetcode/01-1~100/011-盛水最多的容器.html">
+            
+                <a href="../../08-Leetcode/01-1~100/011-盛水最多的容器.html">
+            
+                    
+                    盛水最多的容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.8" data-path="../../08-Leetcode/01-1~100/012-整数转罗马数字.html">
+            
+                <a href="../../08-Leetcode/01-1~100/012-整数转罗马数字.html">
+            
+                    
+                    整数转罗马数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.9" data-path="../../08-Leetcode/01-1~100/013-罗马数字转整数.html">
+            
+                <a href="../../08-Leetcode/01-1~100/013-罗马数字转整数.html">
+            
+                    
+                    罗马数字转整数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.10" data-path="../../08-Leetcode/01-1~100/014-最长公共前缀.html">
+            
+                <a href="../../08-Leetcode/01-1~100/014-最长公共前缀.html">
+            
+                    
+                    最长公共前缀
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.11" data-path="../../08-Leetcode/01-1~100/015-三数之和.html">
+            
+                <a href="../../08-Leetcode/01-1~100/015-三数之和.html">
+            
+                    
+                    三数之和
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../../09-PaperRead/">
+            
+                <a href="../../09-PaperRead/">
+            
+                    
+                    PaperRead
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../../09-PaperRead/01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.html">
+            
+                <a href="../../09-PaperRead/01-Medical Transformer-Gated Axial-Attention forMedical Image Segmentation.html">
+            
+                    
+                    Medical Transformer-Gated Axial-Attention forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../../09-PaperRead/02-Polarized Self-Attention Towards High-quality Pixel-wise Regression.html">
+            
+                <a href="../../09-PaperRead/02-Polarized Self-Attention Towards High-quality Pixel-wise Regression.html">
+            
+                    
+                    Polarized Self-Attention Towards High-quality Pixel-wise Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../../09-PaperRead/03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.html">
+            
+                <a href="../../09-PaperRead/03-U-Net Transformer Self and Cross Attention forMedical Image Segmentation.html">
+            
+                    
+                    U-Net Transformer Self and Cross Attention forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../../09-PaperRead/04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.html">
+            
+                <a href="../../09-PaperRead/04-TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation.html">
+            
+                    
+                    TransFuse-Fusing Transformers and CNNs forMedical Image Segmentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../../09-PaperRead/05-SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices.html">
+            
+                <a href="../../09-PaperRead/05-SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices.html">
+            
+                    
+                    SAUNet++- An automatic segmentation model of COVID-19 lesion fromCT slices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../../09-PaperRead/06-Conformer-Local Features Coupling Global Representations for Visual Recognition.html">
+            
+                <a href="../../09-PaperRead/06-Conformer-Local Features Coupling Global Representations for Visual Recognition.html">
+            
+                    
+                    Conformer-Local Features Coupling Global Representations for Visual Recognition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../../09-PaperRead/07-Dual-branch combination network-DCN.html">
+            
+                <a href="../../09-PaperRead/07-Dual-branch combination network-DCN.html">
+            
+                    
+                    Dual-branch combination network-DCN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../../10-Others/">
+            
+                <a href="../../10-Others/">
+            
+                    
+                    Others
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../../10-Others/01-位运算.html">
+            
+                <a href="../../10-Others/01-位运算.html">
+            
+                    
+                    位运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >基础篇</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x57FA;&#x7840;&#x7BC7;"><b></b>&#x57FA;&#x7840;&#x7BC7;</a></li></ul></div><a href="#&#x57FA;&#x7840;&#x7BC7;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x57FA;&#x7840;&#x7BC7;"><a name="&#x57FA;&#x7840;&#x7BC7;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x7840;&#x7BC7;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x7840;&#x7BC7;</h1>
+<p>&#x8BE5;&#x7BC7;&#x4E3B;&#x8981;&#x4ECE;&#x4E00;&#x4E0B;&#x51E0;&#x4E2A;&#x65B9;&#x9762;&#x6765;&#x5B66;&#x4E60;Go&#x8BED;&#x8A00;&#xFF1A;</p>
+<ul>
+<li>Go&#x8BED;&#x8A00;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;</li>
+<li>Go&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x5316;&#x4E0E;&#x9879;&#x76EE;&#x7BA1;&#x7406;</li>
+<li>Go&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;</li>
+<li>Go&#x8BED;&#x8A00;&#x7684;&#x57FA;&#x672C;&#x8BED;&#x6CD5;</li>
+<li>Go&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x51FD;&#x6570;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Go">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="01-GO项目管理.html" class="navigation navigation-next " aria-label="Next page: GO项目管理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"基础篇","level":"1.4.1","depth":2,"next":{"title":"GO项目管理","level":"1.4.1.1","depth":3,"path":"02-Go/01-基础篇/01-GO项目管理.md","ref":"02-Go/01-基础篇/01-GO项目管理.md","articles":[]},"previous":{"title":"Go","level":"1.4","depth":1,"path":"02-Go/README.md","ref":"02-Go/README.md","articles":[{"title":"基础篇","level":"1.4.1","depth":2,"path":"02-Go/01-基础篇/README.md","ref":"02-Go/01-基础篇/README.md","articles":[{"title":"GO项目管理","level":"1.4.1.1","depth":3,"path":"02-Go/01-基础篇/01-GO项目管理.md","ref":"02-Go/01-基础篇/01-GO项目管理.md","articles":[]},{"title":"变量的声明及类型","level":"1.4.1.2","depth":3,"path":"02-Go/01-基础篇/02-变量的声明及类型.md","ref":"02-Go/01-基础篇/02-变量的声明及类型.md","articles":[]},{"title":"复合数据类型","level":"1.4.1.3","depth":3,"path":"02-Go/01-基础篇/03-复合数据类型.md","ref":"02-Go/01-基础篇/03-复合数据类型.md","articles":[]},{"title":"流程控制","level":"1.4.1.4","depth":3,"path":"02-Go/01-基础篇/04-流程控制.md","ref":"02-Go/01-基础篇/04-流程控制.md","articles":[]},{"title":"函数","level":"1.4.1.5","depth":3,"path":"02-Go/01-基础篇/05-函数.md","ref":"02-Go/01-基础篇/05-函数.md","articles":[]}]},{"title":"进阶篇","level":"1.4.2","depth":2,"path":"02-Go/02-进阶篇/README.md","ref":"02-Go/02-进阶篇/README.md","articles":[]},{"title":"web框架","level":"1.4.3","depth":2,"path":"02-Go/03-web框架/README.md","ref":"02-Go/03-web框架/README.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","chapter-fold","theme-comscore","splitter","github","github-buttons@2.1.0","-sharing","-lunr","-search","search-plus","anchor-navigation-ex-toc@0.0.9","editlink","fontsettings","copy-code-button","lightbox","alerts","hide-element","pageview-count"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/BellMeng/Blogs"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/BellMeng/Blogs/blob/master"},"splitter":{},"anchor-navigation-ex-toc":{"associatedWithSummary":true,"float":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"alerts":{},"github-buttons":{"repo":"BellMeng/Blogs","types":["star"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"theme":"default","author":"BellMeng","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":18,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null}},"gitbook":"*","description":"desc","extension":null},"file":{"path":"02-Go/01-基础篇/README.md","mtime":"2022-02-15T18:31:41.049Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-15T18:32:35.684Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
